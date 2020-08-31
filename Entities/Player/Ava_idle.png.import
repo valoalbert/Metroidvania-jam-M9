@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/samurai.png-737ff5a78db1c8eeae05c2cfa421ded9.stex"
+path="res://.import/Ava_idle.png-704421af4de9b2319c052a3a8a6d168c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/samurai_test/samurai.png"
-dest_files=[ "res://.import/samurai.png-737ff5a78db1c8eeae05c2cfa421ded9.stex" ]
+source_file="res://Entities/Player/Ava_idle.png"
+dest_files=[ "res://.import/Ava_idle.png-704421af4de9b2319c052a3a8a6d168c.stex" ]
 
 [params]
 
