@@ -90,7 +90,6 @@ func get_input():
 	pass
 
 	if is_on_floor():
-		print("is on floor")
 		jumping = false
 		velocity.x = lerp(velocity.x, 0, 0.2)
 		jumpCounter = 0
@@ -108,7 +107,6 @@ func get_input():
 	
 	# PLAYER IS IN THE AIR (IS JUMPING)
 	else:
-		print("is not on floor")
 		velocity.x = lerp(velocity.x, 0, 0.03)
 
 		if jumping == false:
