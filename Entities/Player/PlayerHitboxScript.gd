@@ -7,12 +7,12 @@ func _ready():
 
 	pass
 
-func _process(delta):
+func _process(_delta):
 
-	var bodies = get_overlapping_bodies()
+	bodies = get_overlapping_bodies()
 	
 	for body in bodies:
 		if body.is_in_group("Enemy"):
 			print("hit to enemy")
-		else:
-			pass
+
+		pass

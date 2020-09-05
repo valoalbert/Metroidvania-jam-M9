@@ -15,6 +15,8 @@ func _ready():
 	sprite = $Sprite
 	velocity.x = min(velocity.x + ACCELERATION, max_speed)
 	pass
+	
+
 
 func _physics_process(delta):
 	

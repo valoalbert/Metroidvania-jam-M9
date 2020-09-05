@@ -28,5 +28,3 @@ shape = SubResource( 1 )
 tree_root = SubResource( 2 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 3 )
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
