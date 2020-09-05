@@ -1,8 +1,13 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Entities/Player/Ava_atlas.png" type="Texture" id=1]
 [ext_resource path="res://Entities/Player/PlayerHitboxScript.gd" type="Script" id=2]
 [ext_resource path="res://Entities/Player/PlayerScript.gd" type="Script" id=3]
+[ext_resource path="res://Entities/Player/PlayerHurtBoxScript.gd" type="Script" id=4]
+[ext_resource path="res://Entities/Player/Camera2D.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=41]
+extents = Vector2( 14.7424, 25.5163 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.7131, 10 )
@@ -159,6 +164,22 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+
+[sub_resource type="Animation" id=42]
+resource_name = "Hurt"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 27 ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -332,14 +353,26 @@ states/die/node = SubResource( 20 )
 states/die/position = Vector2( 742, 44.25 )
 transitions = [ "Idle", "Run", SubResource( 21 ), "Run", "Idle", SubResource( 22 ), "Idle", "Fall", SubResource( 23 ), "Fall", "Idle", SubResource( 24 ), "Idle", "Jump", SubResource( 25 ), "Jump", "Fall 2", SubResource( 26 ), "Fall 2", "Idle", SubResource( 27 ), "Idle", "die", SubResource( 28 ), "Idle", "Attack_1", SubResource( 29 ), "Attack_1", "Attack_2", SubResource( 30 ), "Attack_1", "Idle", SubResource( 31 ), "Run", "Attack_1", SubResource( 32 ), "Fall 2", "Jump", SubResource( 33 ), "Attack_2", "Attack_3", SubResource( 34 ), "Attack_3", "Idle", SubResource( 35 ), "Attack_2", "Idle", SubResource( 36 ), "Jump", "Jump 2", SubResource( 37 ), "Jump 2", "Fall 2", SubResource( 38 ) ]
 start_node = "Idle"
-graph_offset = Vector2( 215, -371.786 )
+graph_offset = Vector2( 58, -430.285 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=40]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"Player",
+]]
 scale = Vector2( 3, 3 )
 script = ExtResource( 3 )
 able_to_jump = true
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2( 1.739, -0.434748 )
+shape = SubResource( 41 )
+
+[node name="Timer" type="Timer" parent="HurtBox"]
+wait_time = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -350,12 +383,13 @@ drag_margin_top = 0.24
 drag_margin_right = 0.13
 drag_margin_bottom = 0.03
 editor_draw_drag_margin = true
+script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 vframes = 10
 hframes = 9
-frame = 25
+frame = 22
 
 [node name="Hitbox" type="Area2D" parent="Sprite"]
 script = ExtResource( 2 )
@@ -378,6 +412,7 @@ anims/Attack_1 = SubResource( 3 )
 anims/Attack_2 = SubResource( 4 )
 anims/Attack_3 = SubResource( 5 )
 anims/Fall = SubResource( 6 )
+anims/Hurt = SubResource( 42 )
 anims/Idle = SubResource( 7 )
 anims/Jump = SubResource( 8 )
 anims/Run = SubResource( 9 )
@@ -388,4 +423,5 @@ tree_root = SubResource( 39 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 40 )
+[connection signal="timeout" from="HurtBox/Timer" to="HurtBox" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

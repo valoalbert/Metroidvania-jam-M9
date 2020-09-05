@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Images/DialogBackground.png" type="Texture" id=1]
+[ext_resource path="res://Entities/SkillUnlocker/DialogBox.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/Orbitron/Orbitron-VariableFont_wght.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[node name="DialogSkillUnlocker" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.19559
+margin_top = -0.342987
+margin_right = 6.19556
+margin_bottom = -6.34302
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogPivot" type="Position2D" parent="."]
+
+[node name="DialogBox" type="Control" parent="DialogPivot"]
+margin_left = -142.17
+margin_top = -70.7842
+margin_right = 145.83
+margin_bottom = 70.2154
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="DialogPivot/DialogBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogPivot/DialogBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 56.5054
+margin_top = 51.231
+margin_right = -42.4946
+margin_bottom = -29.769
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Hello world "
+text = "Hello world "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="DialogPivot/DialogBox"]
+[connection signal="tween_completed" from="DialogPivot/DialogBox/Tween" to="." method="_on_tween_completed"]
