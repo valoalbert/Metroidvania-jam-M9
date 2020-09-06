@@ -9,3 +9,5 @@ export_presets.cfg
 
 .DS_Store
 .vscode/launch.json
+
+.vscode/
