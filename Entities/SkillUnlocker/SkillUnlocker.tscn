@@ -16,11 +16,13 @@ polygon = PoolVector2Array( -8, -8, -8, 8, 8, 8, 8, -8, -8, -8 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="DialogSkillUnlocker" parent="." instance=ExtResource( 2 )]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DialogSkillUnlocker" parent="CanvasLayer" instance=ExtResource( 2 )]
 pause_mode = 2
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 80.9035
-margin_top = 55.9355
-margin_right = 80.9035
-margin_bottom = 55.9355
+margin_left = 472.384
+margin_top = 280.044
+margin_right = 472.384
+margin_bottom = 280.044
