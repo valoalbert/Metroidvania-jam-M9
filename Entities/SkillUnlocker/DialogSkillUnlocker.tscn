@@ -5,6 +5,7 @@
 [ext_resource path="res://Fonts/Orbitron/Orbitron-VariableFont_wght.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
+size = 24
 font_data = ExtResource( 3 )
 
 [node name="DialogSkillUnlocker" type="Control"]
@@ -22,10 +23,10 @@ __meta__ = {
 [node name="DialogPivot" type="Position2D" parent="."]
 
 [node name="DialogBox" type="Control" parent="DialogPivot"]
-margin_left = -142.17
-margin_top = -70.7842
-margin_right = 145.83
-margin_bottom = 70.2154
+margin_left = -142.0
+margin_top = -71.0
+margin_right = 444.0
+margin_bottom = 216.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false

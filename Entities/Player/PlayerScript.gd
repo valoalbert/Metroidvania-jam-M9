@@ -28,9 +28,10 @@ var dash_skill : bool
 export var able_to_jump : bool
 export var attacking : bool
 
-
+var healthbar
 
 func _ready():
+	healthbar = get_parent().get_node("Hud/Healthbar")
 	# IN CASE YOU NEED TO MODIFY ANY VALUE, HERE IS THE PLACE
 	base_acceleration = 100
 	base_max_speed = 550
@@ -50,7 +51,7 @@ func _ready():
 	jumping = false
 	is_dead = false
 	attacking = false
-	health = 5
+	health = 100
 	
 	double_jump_skill = false
 	dash_skill = false
@@ -58,7 +59,7 @@ func _ready():
 	pass
 	
 func _process(_delta):
-
+	get_parent().get_node("Hud/Healthbar")._on_health_updated(health)
 	# DEBUG OPTIONS
 	
 	# if Input.is_action_pressed("is_dead"):
@@ -166,7 +167,8 @@ func _on_Timer_timeout():
 	acceleration = base_acceleration
 	pass
 
-func hurt():
+func hurt(damage):
+	health -= damage
 	sprite.modulate = "#33ffffff"
 	velocity.y = -600
 	pass

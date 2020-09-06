@@ -1,7 +1,7 @@
 extends Area2D
 
 var bodies
-
+var damage
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -13,7 +13,8 @@ func _process(_delta):
 	
 	for body in bodies:
 		if body.is_in_group("Enemy"):
-			get_parent().hurt()
+			damage = 10
+			get_parent().hurt(damage)
 			$CollisionShape2D.disabled = true
 			$Timer.start()
 			get_parent()
