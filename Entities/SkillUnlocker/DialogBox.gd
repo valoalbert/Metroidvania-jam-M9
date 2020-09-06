@@ -11,7 +11,7 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept") and finished:
 		get_tree().paused = false
-		get_parent().queue_free()
+		get_parent().get_parent().queue_free()
 
 		
 func load_dialog(skill_name):

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Healthbar.gd" type="Script" id=1]
+[ext_resource path="res://Assets/healthbar/white.png" type="Texture" id=2]
+[ext_resource path="res://Assets/healthbar/border.png" type="Texture" id=3]
+[ext_resource path="res://Assets/healthbar/empty.png" type="Texture" id=4]
+
+[node name="Healthbar" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Healthbar" type="TextureProgress" parent="."]
+margin_left = 30.7564
+margin_top = 27.6807
+margin_right = 396.756
+margin_bottom = 68.6807
+max_value = 100.0
+texture_under = ExtResource( 4 )
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 2 )
+tint_progress = Color( 0.0313726, 1, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
