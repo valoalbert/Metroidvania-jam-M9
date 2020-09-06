@@ -6,16 +6,17 @@
 [ext_resource path="res://Entities/Player/PlayerHurtBoxScript.gd" type="Script" id=4]
 [ext_resource path="res://Entities/Player/Camera2D.gd" type="Script" id=5]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=41]
 extents = Vector2( 14.7424, 25.5163 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.7131, 10 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10.4227, 24.0322 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
+resource_name = "Attack_1"
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -55,7 +56,8 @@ tracks/2/keys = {
 "values": [ 45, 46, 47, 48 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
+resource_name = "Attack_2"
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -95,7 +97,8 @@ tracks/2/keys = {
 "values": [ 49, 50 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
+resource_name = "Attack_3"
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -135,7 +138,7 @@ tracks/2/keys = {
 "values": [ 51, 52 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -163,7 +166,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=42]
 resource_name = "Hurt"
 loop = true
 tracks/0/type = "value"
@@ -179,7 +182,7 @@ tracks/0/keys = {
 "values": [ 27 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -195,7 +198,7 @@ tracks/0/keys = {
 "values": [ 18, 19, 20, 21, 22, 23, 24, 25 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=8]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -223,7 +226,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=9]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -239,7 +242,7 @@ tracks/0/keys = {
 "values": [ 9, 10, 11, 12, 13, 14 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=10]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -254,35 +257,39 @@ tracks/0/keys = {
 "values": [ 27, 28, 29, 30, 31, 32, 33, 34 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=13]
+[sub_resource type="AnimationNodeAnimation" id=11]
 animation = "Attack_1"
 
-[sub_resource type="AnimationNodeAnimation" id=14]
+[sub_resource type="AnimationNodeAnimation" id=12]
 animation = "Attack_2"
 
-[sub_resource type="AnimationNodeAnimation" id=15]
+[sub_resource type="AnimationNodeAnimation" id=13]
 animation = "Attack_3"
 
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "Fall"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "Fall"
+
 [sub_resource type="AnimationNodeAnimation" id=16]
-animation = "Fall"
-
-[sub_resource type="AnimationNodeAnimation" id=17]
-animation = "Fall"
-
-[sub_resource type="AnimationNodeAnimation" id=18]
 animation = "Idle"
 
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "Jump"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "Jump"
+
 [sub_resource type="AnimationNodeAnimation" id=19]
-animation = "Jump"
-
-[sub_resource type="AnimationNodeAnimation" id=20]
-animation = "Jump"
-
-[sub_resource type="AnimationNodeAnimation" id=21]
 animation = "Run"
 
-[sub_resource type="AnimationNodeAnimation" id=22]
+[sub_resource type="AnimationNodeAnimation" id=20]
 animation = "die"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=23]
 
@@ -291,68 +298,64 @@ animation = "die"
 [sub_resource type="AnimationNodeStateMachineTransition" id=25]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=26]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=27]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=28]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=29]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=30]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=31]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=32]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=33]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=34]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=35]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=36]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=37]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=38]
 switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=39]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=40]
-switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachine" id=41]
-states/Attack_1/node = SubResource( 13 )
+[sub_resource type="AnimationNodeStateMachine" id=39]
+states/Attack_1/node = SubResource( 11 )
 states/Attack_1/position = Vector2( 343, 235.744 )
-states/Attack_2/node = SubResource( 14 )
+states/Attack_2/node = SubResource( 12 )
 states/Attack_2/position = Vector2( 547.75, 235.244 )
-states/Attack_3/node = SubResource( 15 )
+states/Attack_3/node = SubResource( 13 )
 states/Attack_3/position = Vector2( 791, 236.486 )
-states/Fall/node = SubResource( 17 )
+states/Fall/node = SubResource( 15 )
 states/Fall/position = Vector2( 457.5, -148.75 )
-"states/Fall 2/node" = SubResource( 16 )
+"states/Fall 2/node" = SubResource( 14 )
 "states/Fall 2/position" = Vector2( 909, -169.75 )
-states/Idle/node = SubResource( 18 )
+states/Idle/node = SubResource( 16 )
 states/Idle/position = Vector2( 546.5, 44.25 )
-states/Jump/node = SubResource( 20 )
+states/Jump/node = SubResource( 18 )
 states/Jump/position = Vector2( 633.5, -169.75 )
-"states/Jump 2/node" = SubResource( 19 )
+"states/Jump 2/node" = SubResource( 17 )
 "states/Jump 2/position" = Vector2( 636, -303.786 )
-states/Run/node = SubResource( 21 )
+states/Run/node = SubResource( 19 )
 states/Run/position = Vector2( 343, 44.25 )
-states/die/node = SubResource( 22 )
+states/die/node = SubResource( 20 )
 states/die/position = Vector2( 742, 44.25 )
-transitions = [ "Idle", "Run", SubResource( 23 ), "Run", "Idle", SubResource( 24 ), "Idle", "Fall", SubResource( 25 ), "Fall", "Idle", SubResource( 26 ), "Idle", "Jump", SubResource( 27 ), "Jump", "Fall 2", SubResource( 28 ), "Fall 2", "Idle", SubResource( 29 ), "Idle", "die", SubResource( 30 ), "Idle", "Attack_1", SubResource( 31 ), "Attack_1", "Attack_2", SubResource( 32 ), "Attack_1", "Idle", SubResource( 33 ), "Run", "Attack_1", SubResource( 34 ), "Fall 2", "Jump", SubResource( 35 ), "Attack_2", "Attack_3", SubResource( 36 ), "Attack_3", "Idle", SubResource( 37 ), "Attack_2", "Idle", SubResource( 38 ), "Jump", "Jump 2", SubResource( 39 ), "Jump 2", "Fall 2", SubResource( 40 ) ]
+transitions = [ "Idle", "Run", SubResource( 21 ), "Run", "Idle", SubResource( 22 ), "Idle", "Fall", SubResource( 23 ), "Fall", "Idle", SubResource( 24 ), "Idle", "Jump", SubResource( 25 ), "Jump", "Fall 2", SubResource( 26 ), "Fall 2", "Idle", SubResource( 27 ), "Idle", "die", SubResource( 28 ), "Idle", "Attack_1", SubResource( 29 ), "Attack_1", "Attack_2", SubResource( 30 ), "Attack_1", "Idle", SubResource( 31 ), "Run", "Attack_1", SubResource( 32 ), "Fall 2", "Jump", SubResource( 33 ), "Attack_2", "Attack_3", SubResource( 34 ), "Attack_3", "Idle", SubResource( 35 ), "Attack_2", "Idle", SubResource( 36 ), "Jump", "Jump 2", SubResource( 37 ), "Jump 2", "Fall 2", SubResource( 38 ) ]
 start_node = "Idle"
 graph_offset = Vector2( 58, -430.285 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=42]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=40]
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
@@ -366,7 +369,7 @@ script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2( 1.739, -0.434748 )
-shape = SubResource( 1 )
+shape = SubResource( 41 )
 
 [node name="Timer" type="Timer" parent="HurtBox"]
 wait_time = 2.0
@@ -386,39 +389,39 @@ script = ExtResource( 5 )
 texture = ExtResource( 1 )
 vframes = 10
 hframes = 9
-frame = 20
+frame = 22
 
 [node name="Hitbox" type="Area2D" parent="Sprite"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox"]
 position = Vector2( 25.3872, -10.0964 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1.36289, 0.0717659 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Attack_1 = SubResource( 4 )
-anims/Attack_2 = SubResource( 5 )
-anims/Attack_3 = SubResource( 6 )
-anims/Fall = SubResource( 7 )
-anims/Hurt = SubResource( 8 )
-anims/Idle = SubResource( 9 )
-anims/Jump = SubResource( 10 )
-anims/Run = SubResource( 11 )
-anims/die = SubResource( 12 )
+anims/Attack_1 = SubResource( 3 )
+anims/Attack_2 = SubResource( 4 )
+anims/Attack_3 = SubResource( 5 )
+anims/Fall = SubResource( 6 )
+anims/Hurt = SubResource( 42 )
+anims/Idle = SubResource( 7 )
+anims/Jump = SubResource( 8 )
+anims/Run = SubResource( 9 )
+anims/die = SubResource( 10 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 41 )
+tree_root = SubResource( 39 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 42 )
+parameters/playback = SubResource( 40 )
 [connection signal="timeout" from="HurtBox/Timer" to="HurtBox" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

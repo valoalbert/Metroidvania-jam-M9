@@ -1,31 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Tilemaps/new_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/Enemy/BaseEnemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entities/SkillUnlocker/SkillUnlocker.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Healthbar.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Hud.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Entities/SkillUnlocker/DialogSkillUnlocker.tscn" type="PackedScene" id=7]
 
 [node name="DebugLevel2" type="Node2D"]
 position = Vector2( -331.86, -184.367 )
-
-[node name="Hud" parent="." instance=ExtResource( 6 )]
-pause_mode = 2
-
-[node name="Healthbar" parent="Hud" instance=ExtResource( 5 )]
-
-[node name="DialogSkillUnlocker" parent="Hud" instance=ExtResource( 7 )]
-margin_left = -1.75784
-margin_top = 2.1337
-margin_right = 1.24219
-margin_bottom = -3.86633
-
-[node name="SkillUnlocker" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1732.23, 560.028 )
-skill_name = "Double Jump"
-double_jump_skill = true
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 4, 4 )
@@ -40,3 +21,9 @@ position = Vector2( 1505.07, 527.402 )
 [node name="BaseEnemy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 747.825, 598.114 )
 scale = Vector2( 3, 3 )
+
+[node name="SkillUnlocker" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1693.71, 579.356 )
+scale = Vector2( 3, 3 )
+skill_name = "Double Jump"
+double_jump_skill = true

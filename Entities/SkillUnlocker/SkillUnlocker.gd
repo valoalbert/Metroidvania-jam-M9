@@ -11,10 +11,9 @@ var dialog_scene
 export (String) var skill_name
 export var dash_skill : bool
 export var double_jump_skill : bool
-var hud
+
 func _ready():
-	hud = get_parent().get_node("Hud")
-	dialog_scene = hud.get_node("DialogSkillUnlocker")
+	dialog_scene = $DialogSkillUnlocker
 pass	
 
 func _process(_delta):
@@ -24,10 +23,10 @@ func _process(_delta):
 	for body in bodies:
 		if body.is_in_group("Player"):
 			$CollisionShape2D.disabled = true
-			
+			dialog_scene.load_dialog(skill_name)
+			self.position = body.get_global_transform().get_origin()
 			if dash_skill:
 				body.dash_skill = true
 			if double_jump_skill:
 				body.double_jump_skill = true
-			
-			dialog_scene.load_dialog(skill_name)
+			pass
