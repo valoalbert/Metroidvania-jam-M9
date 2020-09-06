@@ -22,10 +22,10 @@ __meta__ = {
 [node name="DialogPivot" type="Position2D" parent="."]
 
 [node name="DialogBox" type="Control" parent="DialogPivot"]
-margin_left = -142.17
-margin_top = -70.7842
-margin_right = 145.83
-margin_bottom = 70.2154
+margin_left = 373.962
+margin_top = 183.0
+margin_right = 931.962
+margin_bottom = 472.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false

@@ -16,7 +16,6 @@ func _process(_delta):
 			get_parent().hurt()
 			$CollisionShape2D.disabled = true
 			$Timer.start()
-			get_parent()
 		pass
 
 
