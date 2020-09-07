@@ -12,7 +12,9 @@ func _process(_delta):
 	bodies = get_overlapping_bodies()
 	
 	for body in bodies:
+		$CollisionShape2D.disabled = true
 		if body.is_in_group("Enemy"):
+			body.stun()
 			print("hit to enemy")
 
 		pass
