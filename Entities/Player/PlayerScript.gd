@@ -52,13 +52,14 @@ func _ready():
 	jumping = false
 	is_dead = false
 	attacking = false
-	health = 100
 	
-	double_jump_skill = false
-	dash_skill = false
+	# INITIALIZE PROPERTIES
+	health = SceneSwitcher.getPlayerHealth()
+	double_jump_skill = SceneSwitcher.getDoubleJumpSkill()
+	dash_skill = SceneSwitcher.getDashSkill()
 	pass
 	
-func _process(_delta):
+func _physics_process(delta):
 	if health == 0:
 		print("dead")
 	else:
@@ -75,8 +76,6 @@ func _process(_delta):
 		#print("attacking: ", attacking)
 		
 		### END DEBUG OPTIONS
-		
-		
 		
 		get_input()
 		
@@ -95,7 +94,6 @@ func _process(_delta):
 func get_input():
 	# MOVEMENT
 	stateMachine.travel("Idle")
-	
 	
 	if !attacking:
 		if Input.is_action_pressed("ui_right"):
@@ -117,7 +115,6 @@ func get_input():
 			change_gravity()
 	pass
 	
-
 	if is_on_floor():
 		jumping = false
 		velocity.x = lerp(velocity.x, 0, 0.2)

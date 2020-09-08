@@ -8,7 +8,14 @@ extends Node
 var player_health : int setget setPlayerHealth, getPlayerHealth
 var level_name : String setget setLevelName, getLevelName
 var player_position : String setget setPlayerPosition, getPlayerPosition
+var dash_skill : bool setget setDashSkill, getDashSkill
+var double_jump_skill : bool setget setDoubleJumpSkill, getDoubleJumpSkill
 
+func _ready():
+	setPlayerHealth(100)
+	setDashSkill(false)
+	setDoubleJumpSkill(false)
+	pass
 
 func setPlayerHealth(health):
 	player_health = health
@@ -27,3 +34,15 @@ func setPlayerPosition(position):
 
 func getPlayerPosition():
 	return player_position
+
+func setDashSkill(dash_skill_arg):
+	dash_skill = dash_skill_arg
+
+func getDashSkill():
+	return dash_skill
+	
+func setDoubleJumpSkill(double_jump_skill_arg):
+	double_jump_skill = double_jump_skill_arg
+	
+func getDoubleJumpSkill():
+	return double_jump_skill

@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tileset_pre.png-e5422912bd3bc12c96b872d996c1d77c.stex"
+path="res://.import/cityLandscape02.png-39249547a23fb2a7ca313127273e903b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilemaps/tileset_pre.png"
-dest_files=[ "res://.import/tileset_pre.png-e5422912bd3bc12c96b872d996c1d77c.stex" ]
+source_file="res://Images/cityLandscape02.png"
+dest_files=[ "res://.import/cityLandscape02.png-39249547a23fb2a7ca313127273e903b.stex" ]
 
 [params]
 
-compress/mode=3
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

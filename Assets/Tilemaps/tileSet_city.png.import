@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tileset_pre.png-e5422912bd3bc12c96b872d996c1d77c.stex"
+path="res://.import/tileSet_city.png-c292f3dab1a2dd2d7f044ac552514ddb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilemaps/tileset_pre.png"
-dest_files=[ "res://.import/tileset_pre.png-e5422912bd3bc12c96b872d996c1d77c.stex" ]
+source_file="res://Assets/Tilemaps/tileSet_city.png"
+dest_files=[ "res://.import/tileSet_city.png-c292f3dab1a2dd2d7f044ac552514ddb.stex" ]
 
 [params]
 

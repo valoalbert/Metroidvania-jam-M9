@@ -1,17 +1,14 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Scenes/tilemap.tres" type="TileSet" id=1]
+[ext_resource path="res://Assets/Tilemaps/tilemap.tres" type="TileSet" id=1]
 
 [node name="Stage5_1" type="Node2D"]
-position = Vector2( 251.426, 291.865 )
-scale = Vector2( 0.0925101, 0.201476 )
 __meta__ = {
 "_editor_description_": ""
 }
 
 [node name="TileMapDet" type="TileMap" parent="."]
-position = Vector2( -2717.82, -1448.63 )
-scale = Vector2( 43.2385, 19.8535 )
+scale = Vector2( 4, 4 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 18, 18 )
 cell_quadrant_size = 18
@@ -22,8 +19,7 @@ __meta__ = {
 }
 
 [node name="TileMapGral" type="TileMap" parent="."]
-position = Vector2( -2717.82, -1448.63 )
-scale = Vector2( 43.2385, 19.8535 )
+scale = Vector2( 4, 4 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 18, 18 )
 cell_quadrant_size = 18
