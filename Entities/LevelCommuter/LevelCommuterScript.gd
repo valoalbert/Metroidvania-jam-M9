@@ -2,13 +2,17 @@ extends Area2D
 
 export (String) var next_level_name
 export (String) var player_position
+export var debug_level : bool
 var player_health : int
 
 var next_level
 
 func _ready():
-
-	next_level = "res://Scenes/DebugLevels/"+next_level_name+".tscn"
+	if debug_level:
+		next_level = "res://Scenes/DebugLevels/"+next_level_name+".tscn"
+	else:
+		next_level = "res://Scenes/Levels/"+next_level_name+".tscn"
+		
 func _physics_process(_delta):
 	var bodies = get_overlapping_bodies()
 	

@@ -1,12 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/tilemap.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/LoadLevel.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Healthbar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Hud.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/DebugLevels/DebugLevel2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Entities/LevelCommuter/LevelLoader.tscn" type="PackedScene" id=6]
-
 
 [node name="DebugLevel3" type="Node2D"]
 script = ExtResource( 2 )
@@ -27,13 +25,14 @@ position = Vector2( 89.2382, 602.425 )
 
 [node name="LevelLoader" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1351.39, 478.345 )
-next_level = ExtResource( 5 )
+next_level_name = "TestWorld_1"
 player_position = "West"
 
 [node name="LevelLoader2" parent="." instance=ExtResource( 6 )]
 position = Vector2( -81.0311, 465.276 )
-next_level = ExtResource( 5 )
+next_level_name = "DebugLevel2"
 player_position = "East"
+debug_level = true
 
 [node name="East" type="Position2D" parent="."]
 position = Vector2( 1165.8, 596.98 )

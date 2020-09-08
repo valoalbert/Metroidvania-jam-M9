@@ -40,7 +40,8 @@ double_jump_skill = true
 [node name="LevelLoader" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2388.38, 466.753 )
 next_level_name = "DebugLevel3"
-player_position = "East"
+player_position = "West"
+debug_level = true
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 1053.44, 666.773 )
