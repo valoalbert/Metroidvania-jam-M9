@@ -14,12 +14,13 @@ var health
 
 func _ready():
 	sprite = $Sprite
+	$Sprite/Hit.visible = false
 	$Sprite/Hit.emitting = false
 	$AnimationPlayer.play("Walk")
 	velocity.x = max_speed
 	health = 20
 	
-func _process(_delta):
+func _physics_process(delta):
 	
 	velocity.y += gravity
 	
@@ -40,6 +41,7 @@ func _process(_delta):
 
 
 func stun():
+	$Sprite/Hit.visible = true
 	$AnimationPlayer.stop()
 	$Sprite/Hit.emitting = true
 	health -= 0
@@ -47,6 +49,7 @@ func stun():
 	$Timer.start()
 
 func _on_Timer_timeout():
+	$Sprite/Hit.visible = false
 	$AnimationPlayer.play("Walk")
 	if reverse:
 		velocity.x = -max_speed

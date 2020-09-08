@@ -5,6 +5,7 @@ extends Area2D
 #SELECT ONLY ONE CHECKBOX TO SET WHICH SKILL DO YOU WANT
 #DO NOT SELECT BOTH CHECKBOX
 #ADD THE SKILL UNLOCKER TO THE SCENE
+#IF PLAYER HAS THAT SKILL, SKILL UNLOCKER WILL BE REMOVED FROM SCENE TREE
 
 var bodies
 var dialog_scene
@@ -20,15 +21,22 @@ func _ready():
 	sprite = $Sprite
 	
 	if dash_skill:
-		sprite.texture = load("res://Entities/SkillUnlocker/dash_skill.png")
-		skill_name = "The Dash MOD"
+		if SceneSwitcher.dash_skill:
+			queue_free()
+		else:
+			sprite.texture = load("res://Entities/SkillUnlocker/dash_skill.png")
+			skill_name = "The Dash MOD"
 	if double_jump_skill:
-		sprite.texture = load("res://Entities/SkillUnlocker/double_jump_skill.png")
-		skill_name = "The Double Jump MOD"
-	if boots_skill:
-		sprite.texture = load("res://Entities/SkillUnlocker/boots_skill.png")
-		skill_name = "The Magnetic boots MOD"
-		
+		if SceneSwitcher.double_jump_skill:
+			queue_free()
+		else:
+			sprite.texture = load("res://Entities/SkillUnlocker/double_jump_skill.png")
+			skill_name = "The Double Jump MOD"
+
+#	if boots_skill:
+#		sprite.texture = load("res://Entities/SkillUnlocker/boots_skill.png")
+#		skill_name = "The Magnetic boots MOD"
+#
 	$AnimationPlayer.play("icon_anim")
 pass	
 

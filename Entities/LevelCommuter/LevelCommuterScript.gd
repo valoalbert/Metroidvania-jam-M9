@@ -18,10 +18,13 @@ func _physics_process(_delta):
 	
 	for body in bodies:
 		if body.name == "Player":
-			load_level(player_position, body.health)
+			load_level(player_position, body.health, body.double_jump_skill, body.dash_skill)
 	pass
 
-func load_level(player_position, player_health):
+func load_level(player_position, player_health, double_jump_skill, dash_skill):
 	SceneSwitcher.setPlayerHealth(player_health)
 	SceneSwitcher.setPlayerPosition(player_position)
+	SceneSwitcher.setDoubleJumpSkill(double_jump_skill)
+	SceneSwitcher.setDashSkill(dash_skill)
+	
 	get_tree().change_scene(next_level)

@@ -387,7 +387,7 @@ editor_draw_drag_margin = true
 texture = ExtResource( 1 )
 vframes = 10
 hframes = 9
-frame = 18
+frame = 25
 
 [node name="Hitbox" type="Area2D" parent="Sprite"]
 collision_mask = 2
@@ -421,6 +421,7 @@ anims/die = SubResource( 12 )
 tree_root = SubResource( 41 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
+process_mode = 0
 parameters/playback = SubResource( 42 )
 [connection signal="timeout" from="HurtBox/Timer" to="HurtBox" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
