@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Tilemaps/new_tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://Scenes/TestWorld_1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/Enemy/BaseEnemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entities/SkillUnlocker/SkillUnlocker.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Hud.tscn" type="PackedScene" id=5]
@@ -40,8 +39,9 @@ double_jump_skill = true
 
 [node name="LevelLoader" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2388.38, 466.753 )
-next_level = ExtResource( 2 )
-player_position = "East"
+next_level_name = "DebugLevel3"
+player_position = "West"
+debug_level = true
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 1053.44, 666.773 )
