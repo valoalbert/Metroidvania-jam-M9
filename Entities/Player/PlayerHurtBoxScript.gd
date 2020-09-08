@@ -22,7 +22,6 @@ func _process(_delta):
 
 
 func _on_Timer_timeout():
-	get_parent().hurt = false
 	get_parent().sprite.modulate = "#ffffffff" 
 	$CollisionShape2D.disabled = false
 

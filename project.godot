@@ -19,6 +19,10 @@ config/name="Metroidvania Month 9"
 run/main_scene="res://Scenes/DebugLevels/DebugLevel2.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+SceneSwitcher="*res://Scripts/SceneSwitcherAutoload.gd"
+
 [display]
 
 window/size/width=1280

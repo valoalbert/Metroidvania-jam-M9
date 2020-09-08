@@ -20,7 +20,6 @@ var jumping
 var health : int
 
 var is_dead : bool
-var hurt : bool
 var hurtback : Vector2
 var double_jump_skill : bool
 var dash_skill : bool
@@ -31,12 +30,13 @@ var gravity_changed : bool
 var healthbar
 
 func _ready():
+	scale = Vector2(3,3)
 	gravity = 40.0
 	healthbar = get_parent().get_node("Hud/Healthbar")
 	# IN CASE YOU NEED TO MODIFY ANY VALUE, HERE IS THE PLACE
 	base_acceleration = 100
 	base_max_speed = 550
-	
+
 	acceleration = base_acceleration
 	max_speed = base_max_speed
 	
@@ -97,7 +97,7 @@ func get_input():
 	stateMachine.travel("Idle")
 	
 	
-	if !attacking and !hurt:
+	if !attacking:
 		if Input.is_action_pressed("ui_right"):
 			hurtback = Vector2(-400, -400)
 			stateMachine.travel("Run")
