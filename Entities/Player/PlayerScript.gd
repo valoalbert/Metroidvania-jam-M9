@@ -4,7 +4,7 @@ extends KinematicBody2D
 const JUMP_H = -900
 const UP = Vector2(0, -1)
 
-var gravity = 40.0
+var gravity
 var acceleration
 var max_speed
 var sprite
@@ -20,22 +20,23 @@ var jumping
 var health : int
 
 var is_dead : bool
-var hurt : bool
 var hurtback : Vector2
 var double_jump_skill : bool
 var dash_skill : bool
 
 export var able_to_jump : bool
 export var attacking : bool
-
+var gravity_changed : bool
 var healthbar
 
 func _ready():
+	scale = Vector2(3,3)
+	gravity = 40.0
 	healthbar = get_parent().get_node("Hud/Healthbar")
 	# IN CASE YOU NEED TO MODIFY ANY VALUE, HERE IS THE PLACE
 	base_acceleration = 100
 	base_max_speed = 550
-	
+
 	acceleration = base_acceleration
 	max_speed = base_max_speed
 	
@@ -51,50 +52,56 @@ func _ready():
 	jumping = false
 	is_dead = false
 	attacking = false
-	health = 100
 	
-	double_jump_skill = false
-	dash_skill = false
-	
+	# INITIALIZE PROPERTIES
+	health = SceneSwitcher.getPlayerHealth()
+	double_jump_skill = SceneSwitcher.getDoubleJumpSkill()
+	dash_skill = SceneSwitcher.getDashSkill()
 	pass
 	
-func _process(_delta):
-	get_parent().get_node("Hud/Healthbar")._on_health_updated(health)
-	# DEBUG OPTIONS
-	
-	# if Input.is_action_pressed("is_dead"):
-	# 	stateMachine.travel("die")
-	# 	print("You killed the player")
-	# 	is_dead = true
-	# pass
-	# print(jumpCounter," ", able_to_jump)
-	#print(stateMachine.get_current_node())
-	#print("attacking: ", attacking)
-	
-	### END DEBUG OPTIONS
-	
-	
-	velocity.y += gravity
-	get_input()
-	dash()
-	velocity = move_and_slide(velocity, UP)
-	if is_dead:
-		set_process(false)
+func _physics_process(delta):
+	if health == 0:
+		print("dead")
+	else:
+		healthbar._on_health_updated(health)
+		
+		# DEBUG OPTIONS
+		# if Input.is_action_pressed("is_dead"):
+		# 	stateMachine.travel("die")
+		# 	print("You killed the player")
+		# 	is_dead = true
+		# pass
+		# print(jumpCounter," ", able_to_jump)
+		#print(stateMachine.get_current_node())
+		#print("attacking: ", attacking)
+		
+		### END DEBUG OPTIONS
+		
+		get_input()
+		
+		if gravity_changed:
+			velocity.y -= gravity
+		else:
+			velocity.y += gravity
+			
+		velocity = move_and_slide(velocity, UP)
+		
+		if is_dead:
+			set_process(false)
 	pass
 
 # FUNCTION TO GET PLAYER CONTROL
 func get_input():
 	# MOVEMENT
 	stateMachine.travel("Idle")
-		
-	if attacking == false and !hurt:
+	
+	if !attacking:
 		if Input.is_action_pressed("ui_right"):
 			hurtback = Vector2(-400, -400)
 			stateMachine.travel("Run")
 			sprite.scale.x = 1
 			velocity.x = max_speed
 		elif Input.is_action_pressed("ui_left"):
-
 			stateMachine.travel("Run")
 			sprite.scale.x = -1
 			velocity.x = -max_speed
@@ -103,14 +110,16 @@ func get_input():
 		if Input.is_action_just_pressed("dash"):
 			stateMachine.travel("Run")
 			dash()
+			
+		if Input.is_action_just_pressed("magnetic_boots"):
+			change_gravity()
 	pass
-
+	
 	if is_on_floor():
 		jumping = false
 		velocity.x = lerp(velocity.x, 0, 0.2)
 		jumpCounter = 0
 		dashCounter = 0
-
 		
 		attack()
 			
@@ -160,15 +169,20 @@ func dash():
 		$Timer.start()
 	pass
 
-# TIME OUT FOR THE DASH AND GET MAX SPEED AND ACCELERATION BACK TO ORIGINAL VALUES
-func _on_Timer_timeout():
-	max_speed = base_max_speed
-	gravity = 40.0
-	acceleration = base_acceleration
+func change_gravity():
+	gravity_changed = true
+	$Timer.start()
 	pass
 
 func hurt(damage):
 	health -= damage
 	sprite.modulate = "#33ffffff"
 	velocity.y = -600
+	pass
+
+# TIME OUT FOR THE DASH AND GET MAX SPEED AND ACCELERATION BACK TO ORIGINAL VALUES
+func _on_Timer_timeout():
+	max_speed = base_max_speed
+	gravity = 40.0
+	acceleration = base_acceleration
 	pass

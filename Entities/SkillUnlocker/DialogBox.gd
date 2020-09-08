@@ -3,9 +3,11 @@ extends Control
 var dialog = "You obtained "
 onready var dialog_pivot = $DialogPivot
 var finished = false
+var sprite
 
 func _ready():
 	self.visible = false
+	sprite = $DialogPivot/DialogBox/Sprite
 	pass
 	
 func _process(_delta):
@@ -14,7 +16,8 @@ func _process(_delta):
 		get_parent().get_parent().queue_free()
 
 		
-func load_dialog(skill_name):
+func load_dialog(skill_name, texture):
+	sprite.texture = texture
 	get_tree().paused = true
 	self.visible = true
 	
