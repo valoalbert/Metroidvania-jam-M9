@@ -3,6 +3,8 @@ extends KinematicBody2D
 # JUMP HEIGHT
 const JUMP_H = -900
 const UP = Vector2(0, -1)
+const WALL_SLIDE_ACCELERATION = 10
+const MAX_WALL_SLIDE_SPEED = 120
 
 var gravity
 var acceleration
@@ -17,16 +19,17 @@ var velocity
 var base_acceleration
 var base_max_speed
 var jumping
-var health : int
 
+var health : int
 var is_dead : bool
 var hurtback : Vector2
 var double_jump_skill : bool
 var dash_skill : bool
-
+var wall_jump_skill : bool
+var able_to_wall_jump : bool
 export var able_to_jump : bool
 export var attacking : bool
-var gravity_changed : bool
+#var gravity_changed : bool
 var healthbar
 
 func _ready():
@@ -57,14 +60,11 @@ func _ready():
 	health = SceneSwitcher.getPlayerHealth()
 	double_jump_skill = SceneSwitcher.getDoubleJumpSkill()
 	dash_skill = SceneSwitcher.getDashSkill()
+	wall_jump_skill = SceneSwitcher.getWallJumpSkill()
 	pass
 	
 func _physics_process(delta):
-	if health == 0:
-		print("dead")
-	else:
-		healthbar._on_health_updated(health)
-		
+	print("able_to_jump: ", able_to_jump )
 		# DEBUG OPTIONS
 		# if Input.is_action_pressed("is_dead"):
 		# 	stateMachine.travel("die")
@@ -73,16 +73,22 @@ func _physics_process(delta):
 		# pass
 		# print(jumpCounter," ", able_to_jump)
 		#print(stateMachine.get_current_node())
-		#print("attacking: ", attacking)
+		#print("attacking: ", attacking)		
 		
+		#if gravity_changed:
+		#velocity.y -= gravity
+		#else:
+		#velocity.y += gravity
 		### END DEBUG OPTIONS
-		
+	velocity.y += gravity
+	if health == 0:
+		print("dead")
+	else:
+		healthbar._on_health_updated(health)
+
 		get_input()
 		
-		if gravity_changed:
-			velocity.y -= gravity
-		else:
-			velocity.y += gravity
+
 			
 		velocity = move_and_slide(velocity, UP)
 		
@@ -108,14 +114,11 @@ func get_input():
 		
 		# DASH INPUT
 		if Input.is_action_just_pressed("dash"):
-			stateMachine.travel("Run")
 			dash()
-			
-		if Input.is_action_just_pressed("magnetic_boots"):
-			change_gravity()
 	pass
 	
 	if is_on_floor():
+		able_to_jump = true
 		jumping = false
 		velocity.x = lerp(velocity.x, 0, 0.2)
 		jumpCounter = 0
@@ -124,14 +127,12 @@ func get_input():
 		attack()
 			
 		if !attacking:
-			if Input.is_action_just_pressed("ui_accept"):
-				jumping = true
-				stateMachine.travel("Fall 2")
-				jumpCounter += 1
-				velocity.y = JUMP_H
+			jump()
+		pass
 	
 	# PLAYER IS IN THE AIR (IS JUMPING)
 	else:
+
 		velocity.x = lerp(velocity.x, 0, 0.03)
 
 		if jumping == false:
@@ -142,6 +143,19 @@ func get_input():
 				stateMachine.travel("Jump 2")
 				jumpCounter += 1 
 				velocity.y = JUMP_H
+				able_to_jump = false
+	pass
+	
+	if is_on_wall() and wall_jump_skill:
+		
+		if Input.is_action_pressed("ui_right") || Input.is_action_pressed("ui_left"):
+			stateMachine.travel("Wall")
+			jumpCounter = 0
+			jump()
+			if velocity.y >= 0:
+				velocity.y = min(velocity.y + WALL_SLIDE_ACCELERATION, MAX_WALL_SLIDE_SPEED)
+			else:
+				velocity.y += gravity
 	pass
 
 # COMBAT SYSTEM
@@ -162,6 +176,7 @@ func attack():
 # DASH FUNCTION, MODIFIES ORIGINAL PLAYER MAX SPEED AND ACCELERATION
 func dash():
 	if  Input.is_action_just_pressed("dash") and dashCounter < 1 and dash_skill:
+		stateMachine.travel("Run")
 		dashCounter += 1
 		max_speed = 2000
 		acceleration = 1000
@@ -169,10 +184,25 @@ func dash():
 		$Timer.start()
 	pass
 
-func change_gravity():
-	gravity_changed = true
-	$Timer.start()
-	pass
+func jump():
+	if Input.is_action_just_pressed("ui_accept") and able_to_jump:
+		jumping = true
+		stateMachine.travel("Fall 2")
+		jumpCounter += 1
+		velocity.y = JUMP_H
+
+		if is_on_wall() and wall_jump_skill: 
+			$WallJumpTimer.start()
+			able_to_jump = false
+			if Input.is_action_pressed("ui_right"): 
+				velocity.x = -base_max_speed
+			elif Input.is_action_pressed("ui_left"):
+				velocity.x = base_max_speed
+	return
+#func change_gravity():
+#	gravity_changed = true
+#	$Timer.start()
+#	pass
 
 func hurt(damage):
 	health -= damage
@@ -186,3 +216,8 @@ func _on_Timer_timeout():
 	gravity = 40.0
 	acceleration = base_acceleration
 	pass
+
+
+func _on_WallJumpTimer_timeout():
+	able_to_jump = true
+	pass 
