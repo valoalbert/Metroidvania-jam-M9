@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Tilemaps/tilemap.tres" type="TileSet" id=1]
+[ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Healthbar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Hud.tscn" type="PackedScene" id=4]
 
 [node name="Stage0_3" type="Node2D"]
 
@@ -64,3 +67,10 @@ __meta__ = {
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 scale = Vector2( 1e-05, 1e-05 )
 color = Color( 0.235294, 0.392157, 0.392157, 1 )
+
+[node name="Hud" parent="." instance=ExtResource( 4 )]
+
+[node name="Healthbar" parent="Hud" instance=ExtResource( 3 )]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 10672.1, 2531.96 )
