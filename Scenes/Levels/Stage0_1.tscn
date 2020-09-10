@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Tilemaps/tilemap.tres" type="TileSet" id=1]
-[ext_resource path="res://Entities/LevelCommuter/LevelCommuter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/LevelCommuter/LevelLoader.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/LoadLevel.gd" type="Script" id=3]
 [ext_resource path="res://Entities/Enemy/BaseEnemy.tscn" type="PackedScene" id=4]
 
@@ -76,12 +76,12 @@ color = Color( 0.839216, 0.356863, 0.807843, 1 )
 [node name="West" type="Position2D" parent="."]
 position = Vector2( 6941.55, 1903.55 )
 
-[node name="LevelCommuter" parent="West" instance=ExtResource( 2 )]
-position = Vector2( -179.051, -131.095 )
-next_level_name = "DebugLevel3"
-player_position = "East"
-debug_level = true
-
 [node name="BaseEnemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 7785.99, 1729.15 )
 scale = Vector2( 3, 3 )
+
+[node name="LevelLoader" parent="." instance=ExtResource( 2 )]
+position = Vector2( 6796.55, 1784.33 )
+next_level_name = "DebugLevel3"
+player_position = "East"
+debug_level = true

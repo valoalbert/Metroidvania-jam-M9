@@ -44,7 +44,7 @@ func stun():
 	$Sprite/Hit.visible = true
 	$AnimationPlayer.stop()
 	$Sprite/Hit.emitting = true
-	health -= 0
+	health -= 5
 	velocity.x = 0
 	$Timer.start()
 

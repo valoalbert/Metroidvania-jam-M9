@@ -79,6 +79,10 @@ func _physics_process(delta):
 		get_tree().paused = true
 		pass
 	else:
+		print(health)
+		
+		if health > 100:
+			health = 100
 		velocity.y += gravity
 		healthbar._on_health_updated(health)
 		get_input()
