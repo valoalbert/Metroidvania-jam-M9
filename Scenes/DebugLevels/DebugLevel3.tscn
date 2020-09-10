@@ -1,10 +1,11 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Tilemaps/tilemap.tres" type="TileSet" id=1]
-[ext_resource path="res://Scripts/LoadLevel.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/DebugLevels/DebugLevel2Script.gd" type="Script" id=2]
 [ext_resource path="res://Entities/LevelCommuter/LevelLoader.tscn" type="PackedScene" id=6]
 
 [node name="DebugLevel3" type="Node2D"]
+pause_mode = 1
 script = ExtResource( 2 )
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -30,3 +31,6 @@ debug_level = true
 
 [node name="East" type="Position2D" parent="."]
 position = Vector2( 1165.8, 596.98 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 944.356, 596.98 )

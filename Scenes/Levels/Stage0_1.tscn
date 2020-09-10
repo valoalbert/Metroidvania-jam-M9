@@ -6,6 +6,7 @@
 [ext_resource path="res://Entities/Enemy/BaseEnemy.tscn" type="PackedScene" id=4]
 
 [node name="Stage0_1" type="Node2D"]
+pause_mode = 1
 script = ExtResource( 3 )
 __meta__ = {
 "_editor_description_": ""
