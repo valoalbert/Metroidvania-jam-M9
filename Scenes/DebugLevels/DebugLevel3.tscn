@@ -19,7 +19,7 @@ position = Vector2( 89.2382, 602.425 )
 
 [node name="LevelLoader" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1356.39, 478.345 )
-next_level_name = "TestWorld_1"
+next_level_name = "Stage0_1"
 player_position = "West"
 
 [node name="LevelLoader2" parent="." instance=ExtResource( 6 )]

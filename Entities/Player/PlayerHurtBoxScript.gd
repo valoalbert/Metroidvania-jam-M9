@@ -15,6 +15,10 @@ func _process(_delta):
 		if body.is_in_group("Enemy"):
 			damage = 10
 			get_parent().hurt(damage)
+			if !get_parent().is_dead:
+				get_parent().sprite.modulate = "#33ffffff"
+			else:
+				get_parent().sprite.modulate = "#ffffff"
 			$CollisionShape2D.disabled = true
 			$Timer.start()
 		pass

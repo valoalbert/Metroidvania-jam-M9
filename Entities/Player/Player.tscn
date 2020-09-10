@@ -242,7 +242,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=43]
+[sub_resource type="Animation" id=10]
 resource_name = "Jump_1"
 length = 0.4
 loop = true
@@ -271,8 +271,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "Jump_2"
+[sub_resource type="Animation" id=11]
 length = 0.3
 loop = true
 tracks/0/type = "value"
@@ -300,7 +299,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -328,7 +327,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=45]
+[sub_resource type="Animation" id=13]
 resource_name = "Wall"
 length = 0.001
 tracks/0/type = "value"
@@ -356,7 +355,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=14]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -383,114 +382,114 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=13]
+[sub_resource type="AnimationNodeAnimation" id=15]
 animation = "Attack_1"
 
-[sub_resource type="AnimationNodeAnimation" id=14]
+[sub_resource type="AnimationNodeAnimation" id=16]
 animation = "Attack_2"
 
-[sub_resource type="AnimationNodeAnimation" id=15]
+[sub_resource type="AnimationNodeAnimation" id=17]
 animation = "Attack_3"
 
-[sub_resource type="AnimationNodeAnimation" id=16]
-animation = "Fall"
-
-[sub_resource type="AnimationNodeAnimation" id=17]
-animation = "Fall"
-
 [sub_resource type="AnimationNodeAnimation" id=18]
-animation = "Idle"
+animation = "Fall"
 
 [sub_resource type="AnimationNodeAnimation" id=19]
-animation = "Jump_2"
+animation = "Fall"
 
 [sub_resource type="AnimationNodeAnimation" id=20]
-animation = "Jump_1"
+animation = "Idle"
 
 [sub_resource type="AnimationNodeAnimation" id=21]
-animation = "Run"
-
-[sub_resource type="AnimationNodeAnimation" id=46]
-animation = "Wall"
+animation = "Jump_2"
 
 [sub_resource type="AnimationNodeAnimation" id=22]
+animation = "Jump_1"
+
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "Run"
+
+[sub_resource type="AnimationNodeAnimation" id=24]
+animation = "Wall"
+
+[sub_resource type="AnimationNodeAnimation" id=25]
 animation = "die"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=23]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=24]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=25]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=26]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=27]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=28]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=29]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=30]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=31]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=32]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=33]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=34]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=36]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=37]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=38]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=39]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=40]
 switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=41]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=42]
+switch_mode = 2
 auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=43]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=44]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=47]
+[sub_resource type="AnimationNodeStateMachineTransition" id=45]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=48]
-
-[sub_resource type="AnimationNodeStateMachine" id=41]
-states/Attack_1/node = SubResource( 13 )
+[sub_resource type="AnimationNodeStateMachine" id=46]
+states/Attack_1/node = SubResource( 15 )
 states/Attack_1/position = Vector2( 343, 235.744 )
-states/Attack_2/node = SubResource( 14 )
+states/Attack_2/node = SubResource( 16 )
 states/Attack_2/position = Vector2( 547.75, 235.244 )
-states/Attack_3/node = SubResource( 15 )
+states/Attack_3/node = SubResource( 17 )
 states/Attack_3/position = Vector2( 791, 236.486 )
-states/Fall/node = SubResource( 17 )
+states/Fall/node = SubResource( 19 )
 states/Fall/position = Vector2( 457.5, -148.75 )
-"states/Fall 2/node" = SubResource( 16 )
+"states/Fall 2/node" = SubResource( 18 )
 "states/Fall 2/position" = Vector2( 1031, -220.75 )
-states/Idle/node = SubResource( 18 )
+states/Idle/node = SubResource( 20 )
 states/Idle/position = Vector2( 546.5, 44.25 )
-states/Jump/node = SubResource( 20 )
+states/Jump/node = SubResource( 22 )
 states/Jump/position = Vector2( 636, -169.75 )
-"states/Jump 2/node" = SubResource( 19 )
+"states/Jump 2/node" = SubResource( 21 )
 "states/Jump 2/position" = Vector2( 636, -303.786 )
-states/Run/node = SubResource( 21 )
+states/Run/node = SubResource( 23 )
 states/Run/position = Vector2( 343, 44.25 )
-states/Wall/node = SubResource( 46 )
+states/Wall/node = SubResource( 24 )
 states/Wall/position = Vector2( 510.5, -234.786 )
-states/die/node = SubResource( 22 )
+states/die/node = SubResource( 25 )
 states/die/position = Vector2( 742, 44.25 )
-transitions = [ "Idle", "Run", SubResource( 23 ), "Run", "Idle", SubResource( 24 ), "Idle", "Fall", SubResource( 25 ), "Fall", "Idle", SubResource( 26 ), "Idle", "Jump", SubResource( 27 ), "Jump", "Fall 2", SubResource( 28 ), "Fall 2", "Idle", SubResource( 29 ), "Idle", "die", SubResource( 30 ), "Idle", "Attack_1", SubResource( 31 ), "Attack_1", "Attack_2", SubResource( 32 ), "Attack_1", "Idle", SubResource( 33 ), "Run", "Attack_1", SubResource( 34 ), "Attack_2", "Attack_3", SubResource( 36 ), "Attack_3", "Idle", SubResource( 37 ), "Attack_2", "Idle", SubResource( 38 ), "Jump", "Jump 2", SubResource( 39 ), "Jump 2", "Fall 2", SubResource( 40 ), "Fall 2", "Jump 2", SubResource( 44 ), "Fall", "Wall", SubResource( 47 ), "Fall 2", "Wall", SubResource( 48 ) ]
+transitions = [ "Idle", "Run", SubResource( 26 ), "Run", "Idle", SubResource( 27 ), "Idle", "Fall", SubResource( 28 ), "Fall", "Idle", SubResource( 29 ), "Idle", "Jump", SubResource( 30 ), "Jump", "Fall 2", SubResource( 31 ), "Fall 2", "Idle", SubResource( 32 ), "Idle", "die", SubResource( 33 ), "Idle", "Attack_1", SubResource( 34 ), "Attack_1", "Attack_2", SubResource( 35 ), "Attack_1", "Idle", SubResource( 36 ), "Run", "Attack_1", SubResource( 37 ), "Attack_2", "Attack_3", SubResource( 38 ), "Attack_3", "Idle", SubResource( 39 ), "Attack_2", "Idle", SubResource( 40 ), "Jump", "Jump 2", SubResource( 41 ), "Jump 2", "Fall 2", SubResource( 42 ), "Fall 2", "Jump 2", SubResource( 43 ), "Fall", "Wall", SubResource( 44 ), "Fall 2", "Wall", SubResource( 45 ) ]
 start_node = "Idle"
-graph_offset = Vector2( 114, -360.285 )
+graph_offset = Vector2( 122, -253.382 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=42]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=47]
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
@@ -526,7 +525,7 @@ editor_draw_drag_margin = true
 texture = ExtResource( 1 )
 vframes = 10
 hframes = 9
-frame = 20
+frame = 34
 
 [node name="Hitbox" type="Area2D" parent="Sprite"]
 collision_mask = 2
@@ -546,27 +545,33 @@ wait_time = 0.2
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_process_mode = 0
 anims/Attack_1 = SubResource( 4 )
 anims/Attack_2 = SubResource( 5 )
 anims/Attack_3 = SubResource( 6 )
 anims/Fall = SubResource( 7 )
 anims/Hurt = SubResource( 8 )
 anims/Idle = SubResource( 9 )
-anims/Jump_1 = SubResource( 43 )
-anims/Jump_2 = SubResource( 10 )
-anims/Run = SubResource( 11 )
-anims/Wall = SubResource( 45 )
-anims/die = SubResource( 12 )
+anims/Jump_1 = SubResource( 10 )
+anims/Jump_2 = SubResource( 11 )
+anims/Run = SubResource( 12 )
+anims/Wall = SubResource( 13 )
+anims/die = SubResource( 14 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 41 )
+tree_root = SubResource( 46 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 process_mode = 0
-parameters/playback = SubResource( 42 )
+parameters/playback = SubResource( 47 )
 
 [node name="WallJumpTimer" type="Timer" parent="."]
 wait_time = 0.3
+
+[node name="DieTimer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.8
+one_shot = true
 [connection signal="timeout" from="HurtBox/Timer" to="HurtBox" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="WallJumpTimer" to="." method="_on_WallJumpTimer_timeout"]

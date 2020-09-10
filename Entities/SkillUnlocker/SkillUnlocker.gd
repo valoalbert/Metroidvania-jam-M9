@@ -14,7 +14,7 @@ var skill_name : String
 export var dash_skill : bool
 export var double_jump_skill : bool
 export var boots_skill : bool
-export var wal_jump_skill : bool
+export var wall_jump_skill : bool
 
 func _ready():
 	dialog_scene = $CanvasLayer/DialogSkillUnlocker
@@ -32,7 +32,12 @@ func _ready():
 		else:
 			sprite.texture = load("res://Entities/SkillUnlocker/double_jump_skill.png")
 			skill_name = "The Double Jump MOD"
-
+	if wall_jump_skill:
+		if SceneSwitcher.wall_jump_skill:
+			queue_free()
+		else:
+			sprite.texture = load("res://Entities/SkillUnlocker/wall_jump_skill.png")
+			skill_name = "The Wall jump MOD"
 #	if boots_skill:
 #		sprite.texture = load("res://Entities/SkillUnlocker/boots_skill.png")
 #		skill_name = "The Magnetic boots MOD"
@@ -52,5 +57,7 @@ func _process(_delta):
 				body.dash_skill = true
 			if double_jump_skill:
 				body.double_jump_skill = true
+			if wall_jump_skill:
+				body.wall_jump_skill = true
 
 			pass

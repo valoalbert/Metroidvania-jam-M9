@@ -16,12 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Metroidvania Month 9"
-run/main_scene="res://Scenes/DebugLevels/DebugLevel2.tscn"
+run/main_scene="res://Scenes/Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 SceneSwitcher="*res://Scripts/SceneSwitcherAutoload.gd"
+Game="*res://Scenes/Game.tscn"
 
 [display]
 

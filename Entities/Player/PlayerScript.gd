@@ -27,6 +27,8 @@ var double_jump_skill : bool
 var dash_skill : bool
 var wall_jump_skill : bool
 var able_to_wall_jump : bool
+var player_sprite_scale : int
+
 export var able_to_jump : bool
 export var attacking : bool
 #var gravity_changed : bool
@@ -61,39 +63,27 @@ func _ready():
 	double_jump_skill = SceneSwitcher.getDoubleJumpSkill()
 	dash_skill = SceneSwitcher.getDashSkill()
 	wall_jump_skill = SceneSwitcher.getWallJumpSkill()
+	player_sprite_scale = SceneSwitcher.getPlayerSpriteScale()
+	sprite.scale.x = player_sprite_scale
 	pass
 	
 func _physics_process(delta):
-	print("able_to_jump: ", able_to_jump )
-		# DEBUG OPTIONS
-		# if Input.is_action_pressed("is_dead"):
-		# 	stateMachine.travel("die")
-		# 	print("You killed the player")
-		# 	is_dead = true
-		# pass
-		# print(jumpCounter," ", able_to_jump)
-		#print(stateMachine.get_current_node())
-		#print("attacking: ", attacking)		
-		
-		#if gravity_changed:
-		#velocity.y -= gravity
-		#else:
-		#velocity.y += gravity
-		### END DEBUG OPTIONS
-	velocity.y += gravity
-	if health == 0:
-		print("dead")
+	if health <= 0:
+		is_dead = true
+	
+	if is_dead:
+		healthbar.visible = false
+		stateMachine.travel("die")
+		yield(get_tree().create_timer(1), "timeout")
+		Game.game_over()
+		get_tree().paused = true
+		pass
 	else:
+		velocity.y += gravity
 		healthbar._on_health_updated(health)
-
 		get_input()
-		
-
-			
 		velocity = move_and_slide(velocity, UP)
-		
-		if is_dead:
-			set_process(false)
+
 	pass
 
 # FUNCTION TO GET PLAYER CONTROL
@@ -199,14 +189,9 @@ func jump():
 			elif Input.is_action_pressed("ui_left"):
 				velocity.x = base_max_speed
 	return
-#func change_gravity():
-#	gravity_changed = true
-#	$Timer.start()
-#	pass
 
 func hurt(damage):
 	health -= damage
-	sprite.modulate = "#33ffffff"
 	velocity.y = -600
 	pass
 
