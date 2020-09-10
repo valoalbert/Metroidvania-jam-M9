@@ -1,3 +1,16 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/GameScript.gd" type="Script" id=1]
 
 [node name="Game" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Fade" type="Polygon2D" parent="HUD"]
+position = Vector2( 1.64508, 0 )
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( 0, 0, 1278.35, 0, 1278.35, 720, -1.64508, 720 )
+
+[node name="Tween" type="Tween" parent="HUD/Fade"]

@@ -20,3 +20,8 @@ func _ready():
 	player.global_transform = player_position.get_global_transform()
 	
 	add_child(player)
+	Game.fade_out()
+	
+func _process(delta):
+	
+	pass

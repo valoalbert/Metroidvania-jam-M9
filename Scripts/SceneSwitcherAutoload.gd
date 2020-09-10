@@ -10,11 +10,15 @@ var level_name : String setget setLevelName, getLevelName
 var player_position : String setget setPlayerPosition, getPlayerPosition
 var dash_skill : bool setget setDashSkill, getDashSkill
 var double_jump_skill : bool setget setDoubleJumpSkill, getDoubleJumpSkill
+var wall_jump_skill : bool setget setWallJumpSkill, getWallJumpSkill
+var player_sprite_scale : int setget setPlayerSpriteScale, getPlayerSpriteScale
 
 func _ready():
-	setPlayerHealth(100)
+	setPlayerHealth(20)
 	setDashSkill(false)
 	setDoubleJumpSkill(false)
+	setWallJumpSkill(false)
+	setPlayerSpriteScale(1)
 	pass
 
 func setPlayerHealth(health):
@@ -46,3 +50,15 @@ func setDoubleJumpSkill(double_jump_skill_arg):
 	
 func getDoubleJumpSkill():
 	return double_jump_skill
+
+func setWallJumpSkill(wall_jump_skill_arg):
+	wall_jump_skill = wall_jump_skill_arg
+
+func getWallJumpSkill():
+	return wall_jump_skill
+
+func setPlayerSpriteScale(player_sprite_scale_arg):
+	player_sprite_scale = player_sprite_scale_arg
+
+func getPlayerSpriteScale():
+	return player_sprite_scale
