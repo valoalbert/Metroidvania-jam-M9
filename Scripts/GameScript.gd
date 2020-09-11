@@ -4,12 +4,41 @@ var fade
 var fade_tween
 var game_over_scene = preload("res://Scenes/GameOver.tscn")
 var game_over_menu
+var menu_music
+var main_theme
+var game_over_music
+var game_over_bool
+var hit_sound
+var robot_explosion
+var skill_sound
+var pause_sound
+var game_paused : bool
+var game_start : bool
 
 func _ready():
+	game_start = false
+	game_paused = false
 	fade = $HUD/Fade
 	fade_tween = $HUD/Fade/Tween
+	menu_music = $MenuMusic
+	main_theme = $main_theme
+	game_over_music = $game_over
+	hit_sound = $hit
+	robot_explosion = $explosion
+	skill_sound = $Skill
+	pause_sound = $Pause
 	#game_over_menu = game_over_scene.instance()
 	pass
+	
+func _physics_process(delta):
+	if game_start:
+		if Input.is_action_just_pressed("pause"):
+			pause_sound.playing = true
+			game_paused = true
+			if get_tree().paused == true:
+				get_tree().paused = false
+			else:
+				get_tree().paused = true
 
 func fade_in():
 	
@@ -43,13 +72,20 @@ func fade_in_splash():
 
 
 func game_over():
+	game_over_bool = true
+	game_over_music.playing = true
 	if !get_parent().has_node("GameOver"):
 		game_over_menu = game_over_scene.instance()
 	get_parent().move_child(self, 3)
 	fade_tween.interpolate_property(fade, "modulate", Color(1, 1, 1, 0), Color(1, 1, 1, 0.8), 1, 
 	  Tween.TRANS_LINEAR, Tween.EASE_IN)
 	fade_tween.start()
+	
 	yield(get_tree().create_timer(0.8), "timeout")
 	get_parent().add_child(game_over_menu)
+	main_theme.stop()
+	menu_music.stop()
+	
+	
 	
 	pass

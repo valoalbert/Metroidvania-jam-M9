@@ -13,7 +13,7 @@ func _process(_delta):
 	
 	for body in bodies:
 		if body.is_in_group("Enemy"):
-			damage = 10
+			damage = body.damage
 			get_parent().hurt(damage)
 			if !get_parent().is_dead:
 				get_parent().sprite.modulate = "#33ffffff"

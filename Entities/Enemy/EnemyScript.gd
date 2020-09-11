@@ -11,6 +11,7 @@ export var reverse: bool
 var sprite
 var stun
 var health
+export var damage : int = 20
 
 func _ready():
 	sprite = $Sprite
@@ -25,6 +26,7 @@ func _physics_process(delta):
 	velocity.y += gravity
 	
 	if health == 0:
+		Game.robot_explosion.playing = true
 		queue_free()
 	
 	if is_on_wall():
@@ -41,6 +43,7 @@ func _physics_process(delta):
 
 
 func stun():
+	Game.hit_sound.playing = true
 	$Sprite/Hit.visible = true
 	$AnimationPlayer.stop()
 	$Sprite/Hit.emitting = true

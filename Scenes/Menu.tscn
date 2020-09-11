@@ -57,10 +57,10 @@ __meta__ = {
 }
 
 [node name="QuitButton" type="Button" parent="Control"]
-margin_left = 495.633
-margin_top = 217.519
-margin_right = 807.633
-margin_bottom = 283.519
+margin_left = 496.0
+margin_top = 218.0
+margin_right = 808.0
+margin_bottom = 284.0
 custom_fonts/font = SubResource( 2 )
 icon = ExtResource( 4 )
 flat = true
@@ -70,4 +70,6 @@ __meta__ = {
 [connection signal="mouse_entered" from="Control/PlayButton" to="." method="_on_PlayButton_mouse_entered"]
 [connection signal="mouse_exited" from="Control/PlayButton" to="." method="_on_PlayButton_mouse_exited"]
 [connection signal="pressed" from="Control/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="mouse_entered" from="Control/QuitButton" to="." method="_on_QuitButton_mouse_entered"]
+[connection signal="mouse_exited" from="Control/QuitButton" to="." method="_on_QuitButton_mouse_exited"]
 [connection signal="pressed" from="Control/QuitButton" to="." method="_on_QuitButton_pressed"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sounds/sfx/broken_fan.wav" type="AudioStream" id=1]
+
+[node name="FanSound" type="Node2D"]
+position = Vector2( 5095.65, -7611.43 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Fans" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+volume_db = 1.6
+pitch_scale = 0.26
+autoplay = true

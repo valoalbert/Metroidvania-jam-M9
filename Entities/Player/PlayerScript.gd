@@ -72,9 +72,11 @@ func _physics_process(delta):
 		is_dead = true
 	
 	if is_dead:
+		Game.game_start = false
 		healthbar.visible = false
 		stateMachine.travel("die")
 		yield(get_tree().create_timer(1), "timeout")
+		
 		Game.game_over()
 		get_tree().paused = true
 		pass

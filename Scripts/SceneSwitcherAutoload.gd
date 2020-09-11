@@ -14,11 +14,12 @@ var wall_jump_skill : bool setget setWallJumpSkill, getWallJumpSkill
 var player_sprite_scale : int setget setPlayerSpriteScale, getPlayerSpriteScale
 
 func _ready():
-	setPlayerHealth(90)
+	setPlayerHealth(100)
 	setDashSkill(false)
 	setDoubleJumpSkill(false)
 	setWallJumpSkill(false)
 	setPlayerSpriteScale(1)
+	setPlayerPosition("initial")
 	pass
 
 func setPlayerHealth(health):

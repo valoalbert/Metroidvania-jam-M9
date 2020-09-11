@@ -51,6 +51,7 @@ func _process(_delta):
 	
 	for body in bodies:
 		if body.is_in_group("Player"):
+			Game.skill_sound.playing = true
 			$CollisionShape2D.disabled = true
 			dialog_scene.load_dialog(skill_name, sprite.texture)
 			if dash_skill:
