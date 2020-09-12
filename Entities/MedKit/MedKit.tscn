@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Entities/MedKit/MedKitScript.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tilemaps/tileSet_city.png" type="Texture" id=2]
+[ext_resource path="res://Images/light_totalSquare.jpg" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.04005, 7.04307 )
@@ -9,6 +10,9 @@ extents = Vector2( 8.04005, 7.04307 )
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
 region = Rect2( 344, 493, 16, 14 )
+
+[sub_resource type="OccluderPolygon2D" id=4]
+polygon = PoolVector2Array( -8.03359, -3.01302, -8.03711, 7.04688, 8.03809, 7.03617, 8.04395, -2.98668 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "Medkit"
@@ -46,7 +50,18 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+light_mask = 16
 texture = SubResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="Sprite"]
+position = Vector2( 0.0289645, 0.0204877 )
+scale = Vector2( 0.0627159, 0.0544854 )
+texture = ExtResource( 3 )
+energy = 0.8
+range_item_cull_mask = 16
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite"]
+occluder = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Medkit = SubResource( 3 )
