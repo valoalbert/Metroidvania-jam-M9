@@ -525,7 +525,7 @@ editor_draw_drag_margin = true
 texture = ExtResource( 1 )
 vframes = 10
 hframes = 9
-frame = 21
+frame = 23
 
 [node name="Hitbox" type="Area2D" parent="Sprite"]
 collision_mask = 2

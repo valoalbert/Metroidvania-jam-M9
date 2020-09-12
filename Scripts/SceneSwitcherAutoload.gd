@@ -12,15 +12,22 @@ var dash_skill : bool setget setDashSkill, getDashSkill
 var double_jump_skill : bool setget setDoubleJumpSkill, getDoubleJumpSkill
 var wall_jump_skill : bool setget setWallJumpSkill, getWallJumpSkill
 var player_sprite_scale : int setget setPlayerSpriteScale, getPlayerSpriteScale
+var player_collectables : int setget setPlayerCollectables, getPlayerCollectables
+var coll_array : Array
 
 func _ready():
+	init_game()
+	pass
+	
+func init_game():
 	setPlayerHealth(100)
 	setDashSkill(false)
 	setDoubleJumpSkill(false)
 	setWallJumpSkill(false)
 	setPlayerSpriteScale(1)
 	setPlayerPosition("initial")
-	pass
+	setPlayerCollectables(0)
+	coll_array.clear()
 
 func setPlayerHealth(health):
 	player_health = health
@@ -63,3 +70,9 @@ func setPlayerSpriteScale(player_sprite_scale_arg):
 
 func getPlayerSpriteScale():
 	return player_sprite_scale
+
+func setPlayerCollectables(player_collectables_arg):
+	player_collectables = player_collectables_arg
+	
+func getPlayerCollectables():
+	return player_collectables

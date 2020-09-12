@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Entities/Electrical/ElectricalScript.gd" type="Script" id=1]
+[ext_resource path="res://Entities/Electrical/output-onlinepngtools.png" type="Texture" id=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.991071, 0 ), -5.51115, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+width = 2046
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+trail_divisor = 3
+flag_disable_z = true
+direction = Vector3( 0, -50, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 400.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 5.0
+scale_curve = SubResource( 2 )
+color = Color( 1, 0.611765, 0, 1 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 258.005, 21.8272 )
+
+[sub_resource type="Animation" id=5]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="AnimationNodeStateMachine" id=6]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=7]
+
+[node name="BaseEnemy" type="KinematicBody2D" groups=[
+"Enemy",
+]]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource( 1 )
+damage = 8
+
+[node name="Sprite" type="Sprite" parent="."]
+rotation = 1.5708
+texture = ExtResource( 2 )
+hframes = 8
+frame = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Hit" type="Particles2D" parent="Sprite"]
+position = Vector2( -0.374788, 1.46704 )
+emitting = false
+amount = 22
+lifetime = 0.1
+one_shot = true
+explosiveness = 1.0
+draw_order = 1
+process_material = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.181085, 1.96165 )
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Walk = SubResource( 5 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 6 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource( 7 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.6
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
