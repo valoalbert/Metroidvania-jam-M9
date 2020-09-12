@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Tilemaps/tilemap.tres" type="TileSet" id=1]
 [ext_resource path="res://Entities/LevelCommuter/LevelLoader.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/LoadLevel.gd" type="Script" id=3]
 [ext_resource path="res://Entities/Enemy/BaseEnemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/Collectable/Collectable.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.11816, 65.7523 )
@@ -100,3 +101,7 @@ shape = SubResource( 1 )
 modulate = Color( 1, 0.870588, 0.870588, 1 )
 position = Vector2( 3462.15, 238.962 )
 scale = Vector2( 3, 3 )
+
+[node name="Collectable" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2353.45, -252.823 )
+id = 1

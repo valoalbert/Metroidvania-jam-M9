@@ -28,7 +28,7 @@ var dash_skill : bool
 var wall_jump_skill : bool
 var able_to_wall_jump : bool
 var player_sprite_scale : int
-
+var collectables : int
 export var able_to_jump : bool
 export var attacking : bool
 #var gravity_changed : bool
@@ -65,9 +65,10 @@ func _ready():
 	wall_jump_skill = SceneSwitcher.getWallJumpSkill()
 	player_sprite_scale = SceneSwitcher.getPlayerSpriteScale()
 	sprite.scale.x = player_sprite_scale
+	collectables = SceneSwitcher.getPlayerCollectables()
 	pass
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	if health <= 0:
 		is_dead = true
 	
@@ -81,12 +82,11 @@ func _physics_process(delta):
 		get_tree().paused = true
 		pass
 	else:
-		print(health)
-		
 		if health > 100:
 			health = 100
 		velocity.y += gravity
 		healthbar._on_health_updated(health)
+		healthbar._on_collectable_updated(collectables)
 		get_input()
 		velocity = move_and_slide(velocity, UP)
 

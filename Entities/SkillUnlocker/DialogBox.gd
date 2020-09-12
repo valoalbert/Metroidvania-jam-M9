@@ -30,8 +30,6 @@ func load_dialog(skill_name, texture):
 	$DialogPivot/DialogBox/Tween.start()
 pass
  
-
-
 func _on_tween_completed(object, key):
 	finished = true
 	pass # Replace with function body.

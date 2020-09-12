@@ -19,10 +19,10 @@ func _physics_process(_delta):
 	for body in bodies:
 		if body.name == "Player":
 			get_parent().get_node("Hud/Healthbar").visible = false
-			load_level(player_position, body.health, body.double_jump_skill, body.dash_skill, body.wall_jump_skill, body.sprite.scale.x)
+			load_level(player_position, body.health, body.double_jump_skill, body.dash_skill, body.wall_jump_skill, body.sprite.scale.x, body.collectables)
 	pass
 
-func load_level(player_position, player_health, double_jump_skill, dash_skill, wall_jump_skill, player_sprite_scale):
+func load_level(player_position, player_health, double_jump_skill, dash_skill, wall_jump_skill, player_sprite_scale, player_collectables):
 		
 	SceneSwitcher.setPlayerHealth(player_health)
 	SceneSwitcher.setPlayerPosition(player_position)
@@ -30,6 +30,7 @@ func load_level(player_position, player_health, double_jump_skill, dash_skill, w
 	SceneSwitcher.setDashSkill(dash_skill)
 	SceneSwitcher.setWallJumpSkill(wall_jump_skill)
 	SceneSwitcher.setPlayerSpriteScale(player_sprite_scale)
+	SceneSwitcher.setPlayerCollectables(player_collectables)
 	
 	Game.fade_in()
 	yield(get_tree().create_timer(0.5), "timeout")

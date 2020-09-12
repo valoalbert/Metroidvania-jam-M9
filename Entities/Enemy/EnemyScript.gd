@@ -9,7 +9,6 @@ const gravity = 40
 var velocity = Vector2.ZERO
 export var reverse: bool
 var sprite
-var stun
 var health
 export var damage : int = 20
 
@@ -21,7 +20,7 @@ func _ready():
 	velocity.x = max_speed
 	health = 20
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	velocity.y += gravity
 	

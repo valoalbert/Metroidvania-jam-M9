@@ -23,7 +23,8 @@ __meta__ = {
 
 [node name="LevelLoader" parent="." instance=ExtResource( 2 )]
 position = Vector2( 6688.76, 1377.53 )
-next_level_name = "Stage1_1"
+scale = Vector2( 12.8, 1 )
+next_level_name = "Stage3_3"
 player_position = "Weast"
 
 [node name="initial" type="Position2D" parent="."]
