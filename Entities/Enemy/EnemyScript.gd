@@ -26,7 +26,7 @@ func _physics_process(delta):
 	velocity.y += gravity
  
 	if health == 0:
-		$explosion.playing = true
+		Game.robot_explosion.playing = true
 		queue_free()
  
 	if is_on_wall():
@@ -43,7 +43,7 @@ func _physics_process(delta):
  
  
 func stun():
-	$hit.playing = true
+	Game.hit_sound.playing = true
 	$Sprite/Hit.visible = true
 	$AnimationPlayer.stop()
 	$Sprite/Hit.emitting = true

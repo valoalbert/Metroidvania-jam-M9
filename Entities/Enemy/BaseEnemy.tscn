@@ -1,10 +1,8 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Entities/Enemy/Enemies_atlas.png" type="Texture" id=1]
 [ext_resource path="res://Entities/Enemy/EnemyScript.gd" type="Script" id=2]
 [ext_resource path="res://Images/light_round.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/hit.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/explosion.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 light_mode = 1
@@ -125,8 +123,4 @@ physics_process_parent = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource( 9 )
-
-[node name="hit" parent="." instance=ExtResource( 4 )]
-
-[node name="explosion" parent="." instance=ExtResource( 5 )]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
