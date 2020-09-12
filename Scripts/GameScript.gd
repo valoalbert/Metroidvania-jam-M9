@@ -14,6 +14,7 @@ var hit_sound
 var robot_explosion
 var skill_sound
 var pause_sound
+var medkit_sound
 var game_paused : bool
 var game_start : bool
 
@@ -29,6 +30,7 @@ func _ready():
 	robot_explosion = $explosion
 	skill_sound = $Skill
 	pause_sound = $Pause
+	medkit_sound = $medkit_sound
 	pass
 	
 func _physics_process(_delta):

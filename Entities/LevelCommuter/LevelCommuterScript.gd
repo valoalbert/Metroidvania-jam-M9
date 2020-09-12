@@ -18,7 +18,7 @@ func _physics_process(_delta):
 	
 	for body in bodies:
 		if body.name == "Player":
-			get_parent().get_node("Hud/Healthbar").visible = false
+			get_parent().get_parent().get_node("Hud/Healthbar").visible = false
 			load_level(player_position, body.health, body.double_jump_skill, body.dash_skill, body.wall_jump_skill, body.sprite.scale.x, body.collectables)
 	pass
 

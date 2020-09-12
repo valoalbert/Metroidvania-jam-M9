@@ -13,3 +13,10 @@ func _on_collectable_updated(collectable):
 	text.bbcode_text = str(collectable)+"/10"
 	pass
 	
+func _on_skill_updated(djump, dash, walljump):
+	if djump:
+		$double_jump.visible = true
+	if dash:
+		$dash.visible = true
+	if walljump:
+		$wall_jump.visible = true

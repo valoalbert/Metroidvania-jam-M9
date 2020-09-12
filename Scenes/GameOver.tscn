@@ -1,25 +1,19 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Fonts/Orbitron/Orbitron-VariableFont_wght.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Scripts/MenuScript.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Menu_assets/quit_button.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Menu_assets/new_game_button.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/GameOverScript.gd" type="Script" id=1]
 
-[sub_resource type="DynamicFont" id=1]
-size = 36
-outline_size = 6
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Fonts/Retro-Gaming/Retro Gaming.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 36
-outline_size = 6
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
+font_data = SubResource( 2 )
 
 [node name="GameOver" type="CanvasLayer"]
 pause_mode = 2
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_vertical_guides_": [ 495.633, 792.106, 808.0 ]
 }
@@ -32,25 +26,30 @@ __meta__ = {
 }
 
 [node name="QuitButton" type="Button" parent="Control"]
+visible = false
 margin_left = 495.633
-margin_top = 501.346
+margin_top = 489.737
 margin_right = 807.633
-margin_bottom = 567.346
-custom_fonts/font = SubResource( 1 )
-icon = ExtResource( 4 )
+margin_bottom = 557.737
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.713726, 0.662745, 0.6, 1 )
+action_mode = 0
+text = "Quit"
 flat = true
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": false,
+"_editor_description_": ""
 }
 
 [node name="PlayButton" type="Button" parent="Control"]
 margin_left = 495.633
-margin_top = 409.246
+margin_top = 414.32
 margin_right = 807.633
-margin_bottom = 475.246
-custom_fonts/font = SubResource( 2 )
+margin_bottom = 482.32
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.713726, 0.662745, 0.6, 1 )
 action_mode = 0
-icon = ExtResource( 5 )
+text = "Continue"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false

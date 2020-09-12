@@ -1,16 +1,20 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Entities/Enemy/Enemies_atlas.png" type="Texture" id=1]
 [ext_resource path="res://Entities/Enemy/EnemyScript.gd" type="Script" id=2]
+[ext_resource path="res://Images/light_round.png" type="Texture" id=3]
 
-[sub_resource type="Curve" id=1]
+[sub_resource type="CanvasItemMaterial" id=1]
+light_mode = 1
+
+[sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.991071, 0 ), -5.51115, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=2]
+[sub_resource type="CurveTexture" id=3]
 width = 2046
-curve = SubResource( 1 )
+curve = SubResource( 2 )
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=4]
 trail_divisor = 3
 flag_disable_z = true
 direction = Vector3( 0, -50, 0 )
@@ -20,13 +24,13 @@ initial_velocity = 400.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 5.0
-scale_curve = SubResource( 2 )
+scale_curve = SubResource( 3 )
 color = Color( 1, 0.611765, 0, 1 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 7.80962, 21.8272 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -41,10 +45,25 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Light2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 9.54617, -15.5476 ), Vector2( 9.54617, -16.5476 ), Vector2( 9.54617, -13.3476 ), Vector2( 9.54617, -15.5283 ), Vector2( 9.54617, -16.5858 ), Vector2( 9.54617, -13.7542 ) ]
+}
 
-[sub_resource type="AnimationNodeStateMachine" id=6]
+[sub_resource type="AnimationNodeStateMachine" id=7]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=7]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=8]
+
+[sub_resource type="OccluderPolygon2D" id=9]
+polygon = PoolVector2Array( -1.78268, -0.0895672, -5.55275, 23.8207, 5.1622, 23.8207, 1.59055, 0.00964546 )
 
 [node name="BaseEnemy" type="KinematicBody2D" groups=[
 "Enemy",
@@ -52,6 +71,7 @@ tracks/0/keys = {
 collision_layer = 2
 collision_mask = 4
 script = ExtResource( 2 )
+damage = 10
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -63,6 +83,7 @@ __meta__ = {
 }
 
 [node name="Hit" type="Particles2D" parent="Sprite"]
+material = SubResource( 1 )
 position = Vector2( 3.18881, -7.44196 )
 emitting = false
 amount = 22
@@ -70,25 +91,36 @@ lifetime = 0.1
 one_shot = true
 explosiveness = 1.0
 draw_order = 1
-process_material = SubResource( 3 )
+process_material = SubResource( 4 )
+
+[node name="Light2D" type="Light2D" parent="Sprite"]
+position = Vector2( 9.54617, -15.5283 )
+scale = Vector2( 0.0113923, 0.0113923 )
+texture = ExtResource( 3 )
+texture_scale = 1.8
+color = Color( 1, 0, 0, 1 )
+energy = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.181085, 1.96165 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Walk = SubResource( 5 )
+anims/Walk = SubResource( 6 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 6 )
+tree_root = SubResource( 7 )
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource( 7 )
+parameters/playback = SubResource( 8 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 1.6
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
 position = Vector2( 0.726212, 13.5628 )
 process_parent = true
 physics_process_parent = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource( 9 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

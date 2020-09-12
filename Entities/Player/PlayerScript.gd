@@ -73,6 +73,11 @@ func _physics_process(_delta):
 		is_dead = true
 	
 	if is_dead:
+		SceneSwitcher.setDashSkill(dash_skill)
+		SceneSwitcher.setDoubleJumpSkill(double_jump_skill)
+		SceneSwitcher.setWallJumpSkill(wall_jump_skill)
+		SceneSwitcher.setPlayerCollectables(collectables)
+		
 		Game.game_start = false
 		healthbar.visible = false
 		stateMachine.travel("die")
@@ -87,6 +92,7 @@ func _physics_process(_delta):
 		velocity.y += gravity
 		healthbar._on_health_updated(health)
 		healthbar._on_collectable_updated(collectables)
+		healthbar._on_skill_updated(double_jump_skill, dash_skill, wall_jump_skill)
 		get_input()
 		velocity = move_and_slide(velocity, UP)
 
