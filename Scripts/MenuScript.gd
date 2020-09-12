@@ -16,10 +16,10 @@ func _on_PlayButton_pressed():
 	Game.menu_music.stop()
 	Game.game_over_music.stop()
 	SceneSwitcher.setPlayerPosition("West")
-	Game.fade_in()
+	Game.fade_in_splash()
 	yield(get_tree().create_timer(0.5), "timeout")
 	Game.main_theme.playing = true
-	get_tree().change_scene("res://Scenes/Levels/Stage1_1.tscn")
+	get_tree().change_scene("res://Scenes/Inputs.tscn")
 	
 	
 	if get_parent().has_node("GameOver"):

@@ -93,12 +93,11 @@ func end_game():
 	if !get_parent().has_node("EndGame"):
 		end_game_screen = end_game_scene.instance()
 	
-	fade_tween.interpolate_property(fade, "modulate", Color(1, 1, 1, 0), Color(1, 1, 1, 0.9), 1, 
+	fade_tween.interpolate_property(fade, "modulate", Color(1, 1, 1, 0), Color(1, 1, 1, 0.8), 1, 
 	  Tween.TRANS_LINEAR, Tween.EASE_IN)
 	fade_tween.start()
 	yield(get_tree().create_timer(0.8), "timeout")
 	if !get_parent().has_node("EndGame"):
 		get_parent().add_child(end_game_screen)
 		get_parent().move_child(self, 4)
-	main_theme.stop()
 	print("endgame")

@@ -17,7 +17,7 @@ script = ExtResource( 1 )
 [node name="Fade" type="Polygon2D" parent="HUD"]
 position = Vector2( 1.64508, 0 )
 color = Color( 0, 0, 0, 1 )
-polygon = PoolVector2Array( 0, 0, 1278.35, 0, 1278.35, 720, -1.64508, 720 )
+polygon = PoolVector2Array( -43.8847, -22.1549, 1319.15, -22.1549, 1320.89, 752.135, -45.6688, 753.919 )
 
 [node name="Tween" type="Tween" parent="HUD/Fade"]
 
