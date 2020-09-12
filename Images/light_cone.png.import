@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cars.png-dba9f7f45218c508b2a45d67b35e5259.stex"
+path="res://.import/light_cone.png-883304cee13a7bae3d8db0ce54ec23eb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/cars.png"
-dest_files=[ "res://.import/cars.png-dba9f7f45218c508b2a45d67b35e5259.stex" ]
+source_file="res://Images/light_cone.png"
+dest_files=[ "res://.import/light_cone.png-883304cee13a7bae3d8db0ce54ec23eb.stex" ]
 
 [params]
 

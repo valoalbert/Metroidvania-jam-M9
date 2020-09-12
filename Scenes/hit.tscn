@@ -4,3 +4,5 @@
 
 [node name="hit" type="AudioStreamPlayer"]
 stream = ExtResource( 1 )
+volume_db = -8.78
+pitch_scale = 0.64

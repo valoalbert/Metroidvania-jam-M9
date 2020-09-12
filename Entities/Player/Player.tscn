@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://Entities/Player/Ava_atlas.png" type="Texture" id=1]
 [ext_resource path="res://Entities/Player/PlayerHitboxScript.gd" type="Script" id=2]
@@ -487,9 +487,12 @@ states/die/node = SubResource( 25 )
 states/die/position = Vector2( 742, 44.25 )
 transitions = [ "Idle", "Run", SubResource( 26 ), "Run", "Idle", SubResource( 27 ), "Idle", "Fall", SubResource( 28 ), "Fall", "Idle", SubResource( 29 ), "Idle", "Jump", SubResource( 30 ), "Jump", "Fall 2", SubResource( 31 ), "Fall 2", "Idle", SubResource( 32 ), "Idle", "die", SubResource( 33 ), "Idle", "Attack_1", SubResource( 34 ), "Attack_1", "Attack_2", SubResource( 35 ), "Attack_1", "Idle", SubResource( 36 ), "Run", "Attack_1", SubResource( 37 ), "Attack_2", "Attack_3", SubResource( 38 ), "Attack_3", "Idle", SubResource( 39 ), "Attack_2", "Idle", SubResource( 40 ), "Jump", "Jump 2", SubResource( 41 ), "Jump 2", "Fall 2", SubResource( 42 ), "Fall 2", "Jump 2", SubResource( 43 ), "Fall", "Wall", SubResource( 44 ), "Fall 2", "Wall", SubResource( 45 ) ]
 start_node = "Idle"
-graph_offset = Vector2( 122, -253.382 )
+graph_offset = Vector2( 75, -390.382 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=47]
+
+[sub_resource type="OccluderPolygon2D" id=48]
+polygon = PoolVector2Array( -3.95643, 2.30338, -8.18343, 14.4282, -6.06993, 22.1035, 9.39198, 24.4395, 11.1718, 16.8754, 3.94138, 10.3124, 2.94025, 5.19554 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
@@ -525,7 +528,7 @@ editor_draw_drag_margin = true
 texture = ExtResource( 1 )
 vframes = 10
 hframes = 9
-frame = 23
+frame = 21
 
 [node name="Hitbox" type="Area2D" parent="Sprite"]
 collision_mask = 2
@@ -572,6 +575,9 @@ wait_time = 0.3
 process_mode = 0
 wait_time = 0.8
 one_shot = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource( 48 )
 [connection signal="timeout" from="HurtBox/Timer" to="HurtBox" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="WallJumpTimer" to="." method="_on_WallJumpTimer_timeout"]

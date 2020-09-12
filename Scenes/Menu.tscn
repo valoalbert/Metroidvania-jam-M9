@@ -57,6 +57,7 @@ __meta__ = {
 }
 
 [node name="QuitButton" type="Button" parent="Control"]
+visible = false
 margin_left = 496.0
 margin_top = 218.0
 margin_right = 808.0
