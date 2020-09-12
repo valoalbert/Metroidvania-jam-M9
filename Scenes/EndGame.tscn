@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/EndGameScript.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Menu_assets/new_game_button.png" type="Texture" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Fonts/Retro-Gaming/Retro Gaming.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
+outline_size = 3
+use_filter = true
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Fonts/Retro-Gaming/Retro Gaming.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+outline_size = 2
+use_filter = true
+font_data = SubResource( 3 )
+
+[node name="EndGame" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.40515
+margin_right = 1.40515
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 356.603, 939.603 ]
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 269.366
+margin_top = 72.2879
+margin_right = 1045.37
+margin_bottom = 271.288
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "Congratulations! You helped Ava recover all the lanterns. Why was that important? We need a way to finish the game"
+text = "Congratulations! You helped Ava recover all the lanterns. Why was that important? We need a way to finish the game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+margin_left = 355.198
+margin_top = 308.194
+margin_right = 938.198
+margin_bottom = 548.194
+custom_fonts/normal_font = SubResource( 4 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "Thank you for playing our entry. Don't forget to rate and consider following us on Twitter:
+
+@AlbertValo
+@MrSilverSteam
+@Maneo_O"
+text = "Thank you for playing our entry. Don't forget to rate and consider following us on Twitter:
+
+@AlbertValo
+@MrSilverSteam
+@Maneo_O"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 485.525
+margin_top = 548.194
+margin_right = 797.525
+margin_bottom = 614.194
+icon = ExtResource( 2 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="mouse_entered" from="Button" to="." method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Entities/Electrical/BaseElectric.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/Electrical/ElectricGroup.gd" type="Script" id=2]
+[ext_resource path="res://Images/light_linear.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "idle"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 6.4, 0.1 ), Vector2( 6.4, 0.5 ), Vector2( 6.4, 0.3 ), Vector2( 6.4, 0.6 ) ]
+}
+
+[node name="ElectricGroup" type="Position2D"]
+position = Vector2( 7955.42, -4943.15 )
+
+[node name="BaseEnemy13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1.06543, 0.520508 )
+scale = Vector2( 3.25, 0.644 )
+
+[node name="BaseEnemy14" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1.06494, 3.37305 )
+rotation = 3.14159
+scale = Vector2( 3.25, -0.644 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( -3.20178, -0.0407715 )
+scale = Vector2( 6.4, 0.6 )
+texture = ExtResource( 3 )
+color = Color( 0.666667, 0.984314, 1, 1 )
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Light2D"]
+anims/idle = SubResource( 1 )

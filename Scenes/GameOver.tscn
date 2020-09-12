@@ -55,6 +55,8 @@ flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="mouse_entered" from="Control/QuitButton" to="." method="_on_QuitButton_mouse_entered"]
+[connection signal="mouse_exited" from="Control/QuitButton" to="." method="_on_QuitButton_mouse_exited"]
 [connection signal="pressed" from="Control/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="mouse_entered" from="Control/PlayButton" to="." method="_on_PlayButton_mouse_entered"]
 [connection signal="mouse_exited" from="Control/PlayButton" to="." method="_on_PlayButton_mouse_exited"]

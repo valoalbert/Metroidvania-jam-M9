@@ -9,8 +9,8 @@ const gravity = 40
 var velocity = Vector2.ZERO
 export var reverse: bool
 var sprite
-var stun
 var health
+export var damage : int = 20
 
 func _ready():
 	sprite = $Sprite
@@ -20,11 +20,12 @@ func _ready():
 	velocity.x = max_speed
 	health = 20
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	velocity.y += gravity
 	
 	if health == 0:
+		Game.robot_explosion.playing = true
 		queue_free()
 	
 	if is_on_wall():
@@ -41,10 +42,11 @@ func _physics_process(delta):
 
 
 func stun():
+	Game.hit_sound.playing = true
 	$Sprite/Hit.visible = true
 	$AnimationPlayer.stop()
 	$Sprite/Hit.emitting = true
-	health -= 0
+	health -= 5
 	velocity.x = 0
 	$Timer.start()
 
