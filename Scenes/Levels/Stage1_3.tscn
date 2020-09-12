@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Tilemaps/tilemap.tres" type="TileSet" id=1]
 [ext_resource path="res://Images/light_square.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Images/light_linear.png" type="Texture" id=8]
 [ext_resource path="res://Images/light_totalSquare.jpg" type="Texture" id=9]
 [ext_resource path="res://Images/light_cone.png" type="Texture" id=10]
+[ext_resource path="res://Entities/Collectable/Collectable.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 78.2341 )
@@ -816,3 +817,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/StaticBody2D4"]
 position = Vector2( 42.8374, -64.886 )
 shape = SubResource( 1 )
+
+[node name="Collectable" parent="." instance=ExtResource( 11 )]
+position = Vector2( 6869.53, -673.137 )
+id = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Tilemaps/tilemap.tres" type="TileSet" id=1]
 [ext_resource path="res://Entities/LevelCommuter/LevelLoader.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Images/light_linear.png" type="Texture" id=8]
 [ext_resource path="res://Entities/MedKit/MedKit.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Images/light_square.png" type="Texture" id=10]
+[ext_resource path="res://Entities/Collectable/Collectable.tscn" type="PackedScene" id=11]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 10357.8, 997.288, 10362.3, 1371.86, 9147.22, 2076.07, 9144.22, 2423.68, 8994.39, 2422.18, 9003.39, 1359.88 )
@@ -374,3 +375,7 @@ __meta__ = {
 [node name="MedKit" parent="." instance=ExtResource( 9 )]
 position = Vector2( 11808.3, 2557.83 )
 ammount = 50
+
+[node name="Collectable" parent="." instance=ExtResource( 11 )]
+position = Vector2( 12508.9, 1219.46 )
+id = 4

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Tilemaps/tilemap.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/LoadLevel.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Images/light_round.png" type="Texture" id=8]
 [ext_resource path="res://Images/light_totalSquare.jpg" type="Texture" id=9]
 [ext_resource path="res://Images/light_square.png" type="Texture" id=10]
+[ext_resource path="res://Entities/Collectable/Collectable.tscn" type="PackedScene" id=11]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 1141.92, 644.695, 1297, 644, 1300, 571, 1442, 574, 1442, 429, 1587, 426, 1591, 280, 1802, 281, 1658, 214, 1655, -4, 1800, -7, 1801, -151, 1950.61, -149.335, 1947.96, -432.824, 1586.15, -432.212, 1588.27, -509.552, 1944.25, -506.374, 1805, -576.956, 1802.33, -728.408, 1890.69, -728.675, 1888.91, -936.254, 1577.32, -938.505, 1573.96, -867.87, 1136.69, -864.506, 1129.97, -975.505, 2124.6, -973.923, 2147.22, 776.874, 1103.53, 744.347, 1092.55, -277.122, 1092.55, -865.115, 1138.82, -861.556, 1140.65, -285.14, 1223.51, -284.249, 1227.07, -219.214, 1434.65, -215.65, 1439.11, -186.25, 1146.89, -188.032, 1150.16, 141.104, 1437.32, 145.164, 1439.11, 172.782, 1147.78, 171.891 )
@@ -213,3 +214,9 @@ scale = Vector2( 3, 3 )
 max_speed = 120
 reverse = true
 damage = 5
+
+[node name="Collectable" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1720.31, -97.5401 )
+
+[node name="initial" type="Position2D" parent="."]
+position = Vector2( 162.569, 514.802 )

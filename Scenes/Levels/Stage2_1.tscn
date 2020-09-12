@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Tilemaps/tilemap.tres" type="TileSet" id=1]
 [ext_resource path="res://Images/cityLandscape00.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Entities/LevelCommuter/LevelLoader.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Entities/Enemy/BaseEnemy.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Entities/InvisibleWall/invisibleWall.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Entities/Collectable/Collectable.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Animation" id=1]
 resource_name = "car1"
@@ -694,3 +695,7 @@ position = Vector2( 1974.96, -3289.24 )
 
 [node name="StaticBody2D13" parent="Enemies" instance=ExtResource( 15 )]
 position = Vector2( 1376.27, -3289.24 )
+
+[node name="Collectable" parent="." instance=ExtResource( 16 )]
+position = Vector2( 4416.78, -1984.11 )
+id = 6

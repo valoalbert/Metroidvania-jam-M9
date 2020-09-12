@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Tilemaps/tilemap.tres" type="TileSet" id=1]
 [ext_resource path="res://Assets/AnimatedAssets/Fan/fan.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Images/light_linear.png" type="Texture" id=9]
 [ext_resource path="res://Entities/MedKit/MedKit.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/FanSound.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Entities/Collectable/Collectable.tscn" type="PackedScene" id=12]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 2309.55, -7490.12, 2587.99, -7489.18, 2587.05, -7241.89, 2310.49, -7243.77, 2309.64, -7464.75 )
@@ -459,3 +460,7 @@ ammount = 50
 
 [node name="FanSound" parent="." instance=ExtResource( 11 )]
 position = Vector2( 5060.96, -7617.56 )
+
+[node name="Collectable" parent="." instance=ExtResource( 12 )]
+position = Vector2( 2222.98, -7311.92 )
+id = 8

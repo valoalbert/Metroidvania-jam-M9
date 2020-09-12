@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/life_pickup.wav-0a96987ae67aec6c4750eb6a49e97a46.sample"
+
+[deps]
+
+source_file="res://Sounds/sfx/life_pickup.wav"
+dest_files=[ "res://.import/life_pickup.wav-0a96987ae67aec6c4750eb6a49e97a46.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

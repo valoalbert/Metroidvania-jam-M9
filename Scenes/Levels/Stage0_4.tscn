@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Tilemaps/tilemap.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/LoadLevel.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Images/light_totalSquare.jpg" type="Texture" id=7]
 [ext_resource path="res://Images/light_round.png" type="Texture" id=8]
 [ext_resource path="res://Images/light_linear.png" type="Texture" id=9]
+[ext_resource path="res://Entities/Collectable/Collectable.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.11816, 65.7523 )
@@ -842,3 +843,7 @@ shape = SubResource( 1 )
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="Collectable" parent="." instance=ExtResource( 10 )]
+position = Vector2( 5725.5, 2408.12 )
+id = 5

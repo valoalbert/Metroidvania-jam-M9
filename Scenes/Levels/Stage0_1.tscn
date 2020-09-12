@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Tilemaps/tilemap.tres" type="TileSet" id=1]
 [ext_resource path="res://Entities/LevelCommuter/LevelLoader.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Images/light_round.png" type="Texture" id=5]
 [ext_resource path="res://Images/light_totalSquare.jpg" type="Texture" id=6]
 [ext_resource path="res://Images/light_cone.png" type="Texture" id=7]
+[ext_resource path="res://Entities/Collectable/Collectable.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Images/light_linear.png" type="Texture" id=9]
 
 [sub_resource type="OccluderPolygon2D" id=1]
@@ -318,3 +319,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/StaticBody2D3"]
 position = Vector2( -73.5332, -85.9945 )
 shape = SubResource( 3 )
+
+[node name="Collectable" parent="." instance=ExtResource( 8 )]
+position = Vector2( 9791.85, 1818.48 )
+id = 3

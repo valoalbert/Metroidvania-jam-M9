@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Tilemaps/tilemap.tres" type="TileSet" id=1]
 [ext_resource path="res://Entities/SkillUnlocker/SkillUnlocker.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Images/light_round.png" type="Texture" id=7]
 [ext_resource path="res://Images/light_cone.png" type="Texture" id=8]
 [ext_resource path="res://Images/light_linear.png" type="Texture" id=9]
+[ext_resource path="res://Entities/Collectable/Collectable.tscn" type="PackedScene" id=10]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 2017, -5114, 2017, -5044, 2019.27, -4899.3, 2336, -4897, 2346.46, -4752.66, 1873.88, -4761.07, 1873.37, -4894.73, 1931.35, -4911.7, 1933.48, -4956.25, 1872.2, -4969.62 )
@@ -195,3 +196,7 @@ scale = Vector2( 1.211, 0.35 )
 [node name="ElectricGroup2" parent="Electric" instance=ExtResource( 6 )]
 position = Vector2( 4099.65, -4967.18 )
 scale = Vector2( 1.041, 0.793 )
+
+[node name="Collectable" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1132.94, -5091.89 )
+id = 7

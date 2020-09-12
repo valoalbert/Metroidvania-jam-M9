@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Tilemaps/tilemap.tres" type="TileSet" id=1]
 [ext_resource path="res://Entities/LevelCommuter/LevelLoader.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Images/light_netMask.png" type="Texture" id=6]
 [ext_resource path="res://Images/light_cone.png" type="Texture" id=7]
 [ext_resource path="res://Images/light_cityLights.jpg" type="Texture" id=8]
+[ext_resource path="res://Entities/Collectable/Collectable.tscn" type="PackedScene" id=9]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 1849.38, -147.777, 2014.75, -148.751, 2016.34, -4.29764, 2087.77, -4.29764, 2088.56, 140.156, 2156.19, 141.2, 2159.2, 285.403, 2333.02, 285.403, 2330.72, -112.664, 2329.88, -657.86, 2424.27, -657.86, 2427.27, 286.073, 2832.56, 289.07, 2832.56, -660.108, 2923.96, -659.359, 2925.45, 287.572, 2947.18, 287.572, 2949.43, 360.24, 3327.75, 355.745, 3331.5, -661.606, 3434.88, -660.108, 3435.63, 358.741, 3812.45, 357.992, 3758.91, 288.459, 3760.76, -158.175, 3753.27, -214.361, 3755.52, -661.606, 3874.64, -658.609, 3878.38, -214.361, 3894.11, -152.931, 3893.36, -146.188, 4167.55, -146.188, 4130.1, -217.358, 4125.88, -658.51, 4620.88, -654.021, 4614.15, -417.181, 4226.9, -435.14, 4230.27, -215.138, 4268.43, -146.668, 4471.99, -147.125, 4471.6, -423.916, 4596.19, -418.303, 4579.35, 488.646, 1792.89, 450.958, 1512.7, -280.216, 1670.02, -770.163, 2144.99, -770.163, 2159.97, -578.379, 2086.55, -576.881, 2088.05, -503.464, 1851.32, -507.959 )
@@ -261,3 +262,7 @@ position = Vector2( 3462.15, 238.962 )
 scale = Vector2( 3, 3 )
 max_speed = 180
 damage = 18
+
+[node name="Collectable" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4007.48, 256.719 )
+id = 1
