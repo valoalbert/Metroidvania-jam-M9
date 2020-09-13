@@ -2,14 +2,14 @@
 
 [ext_resource path="res://Scenes/GameOverScript.gd" type="Script" id=1]
 
-[sub_resource type="DynamicFontData" id=2]
+[sub_resource type="DynamicFontData" id=1]
 font_path = "res://Fonts/Retro-Gaming/Retro Gaming.ttf"
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 48
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
-font_data = SubResource( 2 )
+font_data = SubResource( 1 )
 
 [node name="GameOver" type="CanvasLayer"]
 pause_mode = 2
@@ -31,7 +31,7 @@ margin_left = 495.633
 margin_top = 489.737
 margin_right = 807.633
 margin_bottom = 557.737
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.713726, 0.662745, 0.6, 1 )
 action_mode = 0
 text = "Quit"
@@ -46,7 +46,7 @@ margin_left = 495.633
 margin_top = 414.32
 margin_right = 807.633
 margin_bottom = 482.32
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.713726, 0.662745, 0.6, 1 )
 action_mode = 0
 text = "Continue"

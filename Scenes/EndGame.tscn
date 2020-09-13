@@ -42,8 +42,8 @@ margin_bottom = 271.288
 custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
-bbcode_text = "Congratulations! You helped Ava recover all the lanterns. Why was that important? We need a way to finish the game"
-text = "Congratulations! You helped Ava recover all the lanterns. Why was that important? We need a way to finish the game"
+bbcode_text = "Congratulations! You helped Ava recover all the organization chips. Why was that important? We needed a way to finish the game"
+text = "Congratulations! You helped Ava recover all the organization chips. Why was that important? We needed a way to finish the game"
 __meta__ = {
 "_edit_use_anchors_": false
 }

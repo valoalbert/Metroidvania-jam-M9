@@ -329,7 +329,8 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=13]
 resource_name = "Wall"
-length = 0.001
+length = 0.8
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -337,10 +338,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 72 ]
+"values": [ 72, 73, 74, 75, 76, 77, 78, 79 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:flip_h")
@@ -528,7 +529,7 @@ editor_draw_drag_margin = true
 texture = ExtResource( 1 )
 vframes = 10
 hframes = 9
-frame = 21
+frame = 20
 
 [node name="Hitbox" type="Area2D" parent="Sprite"]
 collision_mask = 2

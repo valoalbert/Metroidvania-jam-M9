@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Metroidvania Month 9"
+config/name="Ava"
 run/main_scene="res://Scenes/Splash.tscn"
 boot_splash/image="res://Images/bootsplash.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
