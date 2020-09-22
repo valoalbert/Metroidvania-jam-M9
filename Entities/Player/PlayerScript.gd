@@ -40,7 +40,7 @@ func _ready():
 	healthbar = get_parent().get_node("Hud/Healthbar")
 	# IN CASE YOU NEED TO MODIFY ANY VALUE, HERE IS THE PLACE
 	base_acceleration = 100
-	base_max_speed = 550
+	base_max_speed = 600
 
 	acceleration = base_acceleration
 	max_speed = base_max_speed
@@ -122,10 +122,10 @@ func get_input():
 	if is_on_floor():
 		able_to_jump = true
 		jumping = false
-		velocity.x = lerp(velocity.x, 0, 0.2)
+		velocity.x = lerp(velocity.x, 0, 0.3)
 		jumpCounter = 0
 		dashCounter = 0
-		
+		# Linear intERPolation
 		attack()
 			
 		if !attacking:
